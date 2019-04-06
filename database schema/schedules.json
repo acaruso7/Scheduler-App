@@ -1,0 +1,19 @@
+{
+    "id": "5y489a2-c0d2-4f8c-b27a-6a1d4b5784511", //ObjectId OR String
+    "creator": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310", //userId - person who created the schedule and invited others
+    "users": [ //list of userIds - these are the people invited to this schedule
+        "3a647a2-c0d2-4f8c-b27a-6a1d4b5b5100",
+        "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111"
+    ], 
+    "title": "CS546 Meeting", //String
+    "description": "Meet to work on database proposal", //String
+    "dates": [ //list of objects to store user availability 
+        {
+            "date":"Mon Apr 01 2019 21:03:02 GMT-0400 (Eastern Daylight Time)", //Date object
+            "users": [ //list of userIds who selected this date as 'available'
+                "3a647a2-c0d2-4f8c-b27a-6a1d4b5b5100",
+                "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111"
+            ] 
+        } 
+    ]
+}
