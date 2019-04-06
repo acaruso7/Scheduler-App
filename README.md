@@ -42,3 +42,6 @@ The general idea for this app is to provide functionality to users to schedule m
 * Update selections within a certain window
 	* For example, allow a user to change his or her selections within a certain amount of time of the original invite
 
+
+
+
