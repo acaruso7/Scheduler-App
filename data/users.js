@@ -1,20 +1,27 @@
 const collections = require("./collections");
-const settings = collections.settings;
+const users = collections.users;
 const {ObjectId} = require('mongodb');
 
 
 module.exports = {
-    async create() {
-        const usersCollection = await users(); 
+    async create(fullName, email, password) {
+        if (!fullName) throw new Error("You must provide a name");
+        if (typeof fullName !== 'string') throw new Error(`'fullName' must be a string. The inputted value is of type ${typeof fullName}`)   
+        if (!email) throw new Error("You must provide an email address");
+        if (typeof email !== 'string') throw new Error(`'email' must be a string. The inputted value is of type ${typeof email}`)  
+    
+        let newUser = {
+            fullName: fullName,
+            email: email,
+            password: password,
+            schedules: []
+        }
 
-
-
-        // for (i = 0; i < combos.length; i++) {
-        //     var insertInfo = await settingsCollection.insertOne(combos[i]);
-        //     if (insertInfo.insertedCount === 0) throw new Error("Could not add setting");
-        // }
-        return await settingsCollection.find({}).toArray();;
-    },
+        const userCollection = await users(); 
+        const insertInfo = await userCollection.insertOne(newUser);
+        if (insertInfo.insertedCount === 0) throw new Error("Could not add user");
+        return newUser;
+    }
 
     // async getAll() {
     //     const settingsCollection = await settings();  
