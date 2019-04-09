@@ -9,40 +9,37 @@ async function main() {
     await db.dropDatabase();
     
     const user1 = await users.create("Alex Caruso", "acaruso@stevens.edu", 'password');
-    const userId = user1._id.toString()
-    await users.create("test user 2", "test@test.edu", 'password');
-    await users.getAll();
-    await users.get(userId)
-    await users.addScheduleToUser(userId, "test scheduleId")
-    await users.addScheduleToUser(userId, "test scheduleId2")
-  
-    let scheduleId =  "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111"; //the schedule to which the notes refer
-    let userId2 = "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310";
-    let user = "John Doe";
-    let comment = "I can only meet on Monday";
-    let createOne = await notes.createNote(scheduleId,userId2,user,comment);
-    console.log("create one  "+JSON.stringify(createOne))
-    let getOne = await notes.getNoteById(createOne._id.toString())
-    console.log("get one  "+JSON.stringify(getOne))
-  
-    let removeOne = await notes.removeNote(getOne._id.toString());
-    console.log("remove one  "+JSON.stringify(removeOne))
-    let createtwo = await notes.createNote(scheduleId,userId2,user,comment);
-    console.log("create one  "+JSON.stringify(createtwo))
-    let modifyOne = await notes.modifyNote(createtwo._id.toString(),createtwo.comment+"???");
-    console.log("modify one  "+JSON.stringify(modifyOne))
+    const user1Id = user1._id.toString()
+    const user2 = await users.create("John Doe", "johndoe@gmail", 'password');
+    const user2Id = user2._id.toString()
+    // await users.getAll();
+    // await users.get(user1Id)
+
 
     let schedule = await schedules.create("Alex", "2019--04--08", "first meeting", "this a description");
-    let id = schedule._id.toString();
-    await schedules.addUserToSchedules(id,"1");
-    await schedules.addUserToSchedules(id,"2");
-    await schedules.addUserToSchedules(id,"3");
-    await schedules.addDateToSchedule(id, "2019--04--11");
-    await schedules.addDateToSchedule(id,"2019--04--12");
-    await schedules.addResponseToSchedule(id,"1");
-    await schedules.addResponseToSchedule(id,"2");
+    let scheduleId = schedule._id.toString();
+    await schedules.addUserToSchedule(scheduleId, user1Id);
+    await schedules.addUserToSchedule(scheduleId, user2Id);
+    await schedules.addDateToSchedule(scheduleId, "2019--04--11");
+    await schedules.addDateToSchedule(scheduleId,"2019--04--12");
+    await schedules.addResponseToSchedule(scheduleId, user1Id);
+    await schedules.addResponseToSchedule(scheduleId, user2Id);
+    let schedule2 = await schedules.create("John", "2019--04--10", "second meeting", "second meeting description")
+    let schedule2Id = schedule2._id.toString();
+    await users.addScheduleToUser(user1Id, scheduleId)
+    await users.addScheduleToUser(user1Id, schedule2Id)
+
+
+    let comment1 = "I can only meet on Monday";
+    let createOne = await notes.createNote(scheduleId, user1Id, user1['fullName'], comment1);
+    let getOne = await notes.getNoteById(createOne._id.toString())
+    let removeOne = await notes.removeNote(getOne._id.toString());
+
+    let comment2 = "I can only meet on Wednesday";
+    let createTwo = await notes.createNote(scheduleId, user2Id, user2['fullName'], comment2);
+    let modifyOne = await notes.modifyNote(createTwo._id.toString(), "Modified note");
     
-	  console.log('Done seeding database');
+	console.log('Done seeding database');
   
 }
 

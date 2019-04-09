@@ -42,7 +42,7 @@ async function getScheduleByID(scheduleId){
     return oneSchedule;
 }
 
-async function addUserToSchedules(scheduleId, userId){
+async function addUserToSchedule(scheduleId, userId){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
     if(!userId) throw "You must have a userId!";
@@ -122,7 +122,7 @@ async function addResponseToSchedule(scheduleId, userId){
 module.exports = {
     create,
     getScheduleByID,
-    addUserToSchedules,
+    addUserToSchedule,
     addDateToSchedule,
     addResponseToSchedule
 }
