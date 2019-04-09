@@ -8,8 +8,8 @@ async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
     
-    const user = await users.create("Alex Caruso", "acaruso@stevens.edu", 'password');
-    const userId = user._id.toString()
+    const user1 = await users.create("Alex Caruso", "acaruso@stevens.edu", 'password');
+    const userId = user1._id.toString()
     await users.create("test user 2", "test@test.edu", 'password');
     await users.getAll();
     await users.get(userId)

@@ -1,8 +1,0 @@
-{
-    "id": "5y489a2-c0d2-4f8c-b27a-6a1d4b5784511", //note id
-    "scheduleId": "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111", //the schedule to which the notes refer
-    "userId": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
-    "user": "John Doe",
-    "comment": "I can only meet on Monday",
-    "timestamp": "Mon Apr 05 2019 21:03:02 GMT-0400 (Eastern Daylight Time)", //Date object
-}
