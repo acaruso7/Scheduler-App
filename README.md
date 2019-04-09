@@ -53,7 +53,7 @@ The general idea for this app is to provide functionality to users to schedule m
 }
 ```
 | Name          | Type          | Description  									   |
-| ------------- |:-------------:| :-----------------------------------------------:|
+| ------------- |:-------------:| :-----------------------------------------------|
 | _id           | ObjectId      | A globally unique id to represent the user.      |
 | fullName      | String        | The user’s full name     						   |
 | email         | String        | The gmail address associated with the user   	   |
@@ -91,7 +91,7 @@ The general idea for this app is to provide functionality to users to schedule m
 }
 ```
 | Name          | Type          | Description  									   |
-| ------------- |:-------------:| :-----------------------------------------------:|
+| ------------- |:-------------:| :-----------------------------------------------|
 | _id           | ObjectId      | A globally unique id to represent the schedule.      |
 | creator       | ObjectId      | An id to represent the user who created the schedule.      |
 | dateCreated   | Date Object  | The date that the schedule was created     |
@@ -101,12 +101,12 @@ The general idea for this app is to provide functionality to users to schedule m
 | dates       | Array of Date objects    | A list of dates containing the days being considered to meet      |
 ##### 'responses' object
 | Name          | Type          | Description  									   |
-| ------------- |:-------------:| :-----------------------------------------------:|
+| ------------- |:-------------:| :-----------------------------------------------|
 | user          | ObjectId      | The id of the user who responded     |
 | availability          | Array of objects    | List of objects to store the date and time availability selected by the user   |
 ##### 'availability' object
 | Name          | Type          | Description  									   |
-| ------------- |:-------------:| :-----------------------------------------------:|
+| ------------- |:-------------:| :-----------------------------------------------|
 | date          | Date object      | The date that the user is available    |
 | times         | Array of strings    | List of times the user is available on that date   |
 
@@ -122,7 +122,7 @@ The general idea for this app is to provide functionality to users to schedule m
 }
 ```
 | Name          | Type          | Description  									   |
-| ------------- |:-------------:| :-----------------------------------------------:|
+| ------------- |:-------------:| :-----------------------------------------------|
 | _id           | ObjectId      | A globally unique id to represent the note      |
 | scheduleId    | ObjectId      | The id of the schedule associated with this note    |
 | userId    | ObjectId      | The id of the user who created this note |
