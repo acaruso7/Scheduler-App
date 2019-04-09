@@ -4,6 +4,8 @@
   "description": "A simple web app to display random settings to users, and take responses",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "seed": "node ./tasks/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexander Caruso",
@@ -12,6 +14,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "mongodb": "^3.2.3",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "seed": "^0.4.4"
   }
 }
