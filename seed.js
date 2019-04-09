@@ -1,6 +1,7 @@
 const dbConnection = require('./data/connection');
 const data = require('./data/');
 const users = data.users;
+const schedules = data.schedules;
 const notes = data.notes;
 
 async function main() {
@@ -30,7 +31,19 @@ async function main() {
     console.log("create one  "+JSON.stringify(createtwo))
     let modifyOne = await notes.modifyNote(createtwo._id.toString(),createtwo.comment+"???");
     console.log("modify one  "+JSON.stringify(modifyOne))
+
+    let schedule = await schedules.create("Alex", "2019--04--08", "first meeting", "this a description");
+    let id = schedule._id.toString();
+    await schedules.addUserToSchedules(id,"1");
+    await schedules.addUserToSchedules(id,"2");
+    await schedules.addUserToSchedules(id,"3");
+    await schedules.addDateToSchedule(id, "2019--04--11");
+    await schedules.addDateToSchedule(id,"2019--04--12");
+    await schedules.addResponseToSchedule(id,"1");
+    await schedules.addResponseToSchedule(id,"2");
+    
 	  console.log('Done seeding database');
+  
 }
 
 main();
