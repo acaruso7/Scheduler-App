@@ -55,8 +55,8 @@ async function addUserToSchedule(scheduleId, userId){
 
     if(updatedInfo.matchedCount === 0)
         throw `Not find any document have id:${scheduleId}`;
-    // if(updatedInfo.modifiedCount === 0)
-    //     throw "Could not add successfully.";
+    if(updatedInfo.modifiedCount === 0)
+        throw "Could not add successfully.";
 
     return await getScheduleByID(scheduleId);
 }
@@ -64,9 +64,9 @@ async function addUserToSchedule(scheduleId, userId){
 async function addDateToSchedule(scheduleId, date){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
-    // date is a string. The format is YYYY-mm-dd
-    if(!date) throw 'You must have a date!';
-    if(typeof date !== "string") throw `'date' must be a string. The inputted value is of type ${typeof date}`
+    // date is a object. The format is YYYY/mm/dd
+    // if(!date) throw 'You must have a date!';
+    // if(typeof date !== "string") throw `'date' must be a string. The inputted value is of type ${typeof date}`
     // need a check date format.
 
     const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
@@ -75,8 +75,8 @@ async function addDateToSchedule(scheduleId, date){
 
     if(updatedInfo.matchedCount === 0)
         throw `Not find any document have id:${scheduleId}`;
-    // if(updatedInfo.modifiedCount === 0)
-    //     throw "Could not add successfully.";
+    if(updatedInfo.modifiedCount === 0)
+        throw "Could not add successfully.";
 
     return await getScheduleByID(scheduleId);
 }
@@ -114,8 +114,6 @@ async function addResponseToSchedule(scheduleId, userId){
 //     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
 //     // need a check date format.
 //     // if(typeof time !== "array") throw `'time' must be a string. The inputted value is of type ${typeof time}`
-
-
 
 // }
 
