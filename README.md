@@ -1,10 +1,7 @@
 # Scheduler-App
 A node.js schedule app like Doodle to find mutual meeting times among group members
 
-## Tentative name
-ScheduleMe.com
-
-## Group member
+## Group Members
 * Yang, Haolin
 * Bakhsh, Shujaat
 * Liu, Yangyang
@@ -42,6 +39,94 @@ The general idea for this app is to provide functionality to users to schedule m
 * Update selections within a certain window
 	* For example, allow a user to change his or her selections within a certain amount of time of the original invite
 
+## Database Schema
+### Users
+```json
+{
+    "_id": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
+    "fullName": "John Doe",
+    "email": "john.doe@gmail.com",
+    "hashedPassword": "$2a$08$XdvNkfdNIL8F8xsuIUeSbNOFgK0M0iV5HOskfVn7.PWncShU.O", 
+    "schedules":
+        ["3a647a2-c0d2-4f8c-b27a-6a1d4b5b5100",
+        "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111"] 
+}
+```
+| Name          | Type          | Description  									   |
+| ------------- |:-------------:| :-----------------------------------------------|
+| _id           | ObjectId      | A globally unique id to represent the user.      |
+| fullName      | String        | The user’s full name     						   |
+| email         | String        | The gmail address associated with the user   	   |
+| hashedPassword| String        | The user’s password, hashed with bcrypt   	   |
+| schedules     | Array of ObjectIds  | A list of schedule ids that the user is associated with   |
 
+### Schedules
+```json
+{
+    "_id": "5y489a2-c0d2-4f8c-b27a-6a1d4b5784511",
+    "creator": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
+    "dateCreated": "Mon Mar 26 2019 21:03:02 GMT-0400 (Eastern Daylight Time)", 
+   "users": [ 
+       "3a647a2-c0d2-4f8c-b27a-6a1d4b5b5100",
+       "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111"
+   ],
+   "title": "CS546 Meeting",
+   "description": "Meet to work on database proposal",
+   "dates": [ 
+       "Mon Apr 01 2019",
+       "Tues Apr 02 2019",
+       "Thurs Apr 04 2019",
+   ],
+   "responses": [
+       {
+           "user": "3a647a2-c0d2-4f8c-b27a-6a1d4b5b5100",
+           "availability": [
+               {
+                   "date": "Mon Apr 01 2019",
+                   "times": ["1 PM, 3 PM, 5 PM"]
+               }
+            ]
+        }
+    ]
+}
+```
+| Name          | Type          | Description  									   |
+| ------------- |:-------------:| :-----------------------------------------------|
+| _id           | ObjectId      | A globally unique id to represent the schedule.      |
+| creator       | ObjectId      | An id to represent the user who created the schedule.      |
+| dateCreated   | Date Object  | The date that the schedule was created     |
+| users     | Array of ObjectIds      | A list of users associated with the schedule (the users who have been invited to edit)  |
+| title       | String      | A title for the schedule      |
+| description       | String    | A description for the schedule      |
+| dates       | Array of Date objects    | A list of dates containing the days being considered to meet      |
+##### 'responses' object
+| Name          | Type          | Description  									   |
+| ------------- |:-------------:| :-----------------------------------------------|
+| user          | ObjectId      | The id of the user who responded     |
+| availability          | Array of objects    | List of objects to store the date and time availability selected by the user   |
+##### 'availability' object
+| Name          | Type          | Description  									   |
+| ------------- |:-------------:| :-----------------------------------------------|
+| date          | Date object      | The date that the user is available    |
+| times         | Array of strings    | List of times the user is available on that date   |
+
+### Notes
+```json
+{
+   "_id": "5y489a2-c0d2-4f8c-b27a-6a1d4b5784511",
+   "scheduleId": "5t487a2-c0d2-4f8c-b27a-6a1d4b5b1111", 
+   "userId": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
+   "user": "John Doe",
+   "comment": "I can only meet on Monday",
+   "timestamp": "Mon Apr 05 2019 21:03:02 GMT-0400 (Eastern Daylight Time)" 
+}
+```
+| Name          | Type          | Description  									   |
+| ------------- |:-------------:| :-----------------------------------------------|
+| _id           | ObjectId      | A globally unique id to represent the note      |
+| scheduleId    | ObjectId      | The id of the schedule associated with this note    |
+| userId    | ObjectId      | The id of the user who created this note |
+| comment   | String    | The content for this note    |
+| timestamp    | Date object   | The date / time at which the note was posted    |
 
 
