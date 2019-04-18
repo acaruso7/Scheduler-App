@@ -20,7 +20,7 @@ async function create(creator, dateCreated, title, description){
         description, description,
         users: [],
         dates: [],
-        responses: [],
+        responses: []
     }
 
     const schedulesCollection = await schedules();
@@ -105,22 +105,56 @@ async function addResponseToSchedule(scheduleId, userId){
     return await getScheduleByID(scheduleId);
 }
 
-// async function addAvailabilityToResponse(scheduleId, userId, date, time){
-//     if(!scheduleId) throw "You must have a scheduleId!";
-//     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
-//     if(!userId) throw "You must have a userId!";
-//     if(typeof userId !== "string") throw `'userId' must be a string. The inputted value is of type ${typeof userId}`
-//     if(!date) throw 'You must have a date!';
-//     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
-//     // need a check date format.
-//     // if(typeof time !== "array") throw `'time' must be a string. The inputted value is of type ${typeof time}`
 
-// }
+async function addAvailabilityToResponse(scheduleId, userId, date, times){
+    if(!scheduleId) throw "You must have a scheduleId!";
+    if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
+    if(!userId) throw "You must have a userId!";
+    if(typeof userId !== "string") throw `'userId' must be a string. The inputted value is of type ${typeof userId}`
+    // Check the date should in schedule.dates
+    // if(!date) throw 'You must have a date!';
+    // if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
+    // need a check date format.
+    // if(typeof time !== "object") throw `'time' must be a array. The inputted value is of type ${typeof time}`
+
+    const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
+    const schedulesCollection = await schedules();
+
+    let newAvailabilty = {
+        date: date,
+        times: times
+    }
+    
+    const updatedInfo = await schedulesCollection.updateOne({_id: scheduleObjectId, "responses.user": userId}, {$addToSet: {"responses.$.availability": newAvailabilty}});
+
+    if(updatedInfo.matchedCount === 0)
+        throw `Not find any document have id:${scheduleId}`;
+    if(updatedInfo.modifiedCount === 0)
+        throw "Could not add successfully.";
+
+    return await getScheduleByID(scheduleId); 
+}
+
+async function removeSchedule(scheduleId){
+    if(!id) throw new Error("You must input a note id");
+    if(typeof id !=="string") throw new Error(`'id' must be a string. The inputted id is of type ${typeof id}`);
+
+    const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
+    const schedulesCollection = await schedules();
+
+    const deletedOne = await schedulesCollection.findOneAndDelete({ _id: scheduleObjectId});
+    if(deletedOne === null) throw new Error("Failed to delete this note.");
+    return deletedOne;
+}
+
+
 
 module.exports = {
     create,
     getScheduleByID,
     addUserToSchedule,
     addDateToSchedule,
-    addResponseToSchedule
+    addResponseToSchedule,
+    addAvailabilityToResponse,                
+    removeSchedule
 }

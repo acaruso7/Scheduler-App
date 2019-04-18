@@ -24,6 +24,8 @@ async function main() {
     await schedules.addDateToSchedule(scheduleId, new Date("2019/04/12"));
     await schedules.addResponseToSchedule(scheduleId, user1Id);
     await schedules.addResponseToSchedule(scheduleId, user2Id);
+    await schedules.addAvailabilityToResponse(scheduleId, user1Id, new Date("2019/04/12"), [1,2]);
+    
     let schedule2 = await schedules.create("John", new Date("2019/04/10"), "second meeting", "second meeting description")
     let schedule2Id = schedule2._id.toString();
     await users.addScheduleToUser(user1Id, scheduleId)
