@@ -15,16 +15,16 @@ async function main() {
     // await users.getAll();
     // await users.get(user1Id)
 
-
-    let schedule = await schedules.create("Alex", "2019--04--08", "first meeting", "this a description");
+    // let today = new Date()
+    let schedule = await schedules.create("Alex", new Date("2019/4/8"), "first meeting", "this a description");
     let scheduleId = schedule._id.toString();
     await schedules.addUserToSchedule(scheduleId, user1Id);
     await schedules.addUserToSchedule(scheduleId, user2Id);
-    await schedules.addDateToSchedule(scheduleId, "2019--04--11");
-    await schedules.addDateToSchedule(scheduleId,"2019--04--12");
+    await schedules.addDateToSchedule(scheduleId, new Date("2019/04/11"));
+    await schedules.addDateToSchedule(scheduleId, new Date("2019/04/12"));
     await schedules.addResponseToSchedule(scheduleId, user1Id);
     await schedules.addResponseToSchedule(scheduleId, user2Id);
-    let schedule2 = await schedules.create("John", "2019--04--10", "second meeting", "second meeting description")
+    let schedule2 = await schedules.create("John", new Date("2019/04/10"), "second meeting", "second meeting description")
     let schedule2Id = schedule2._id.toString();
     await users.addScheduleToUser(user1Id, scheduleId)
     await users.addScheduleToUser(user1Id, schedule2Id)
@@ -39,8 +39,7 @@ async function main() {
     let createTwo = await notes.createNote(scheduleId, user2Id, user2['fullName'], comment2);
     let modifyOne = await notes.modifyNote(createTwo._id.toString(), "Modified note");
     
-	console.log('Done seeding database');
-  
+    console.log('Done seeding database');
 }
 
 main();
