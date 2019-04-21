@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14pt;
+  background-color: gainsboro;
+}
+
+header,footer {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  border-top: 1px solid violet;
+  border-bottom: 1px solid violet;
+  text-align: left;
+}
+
+body {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+main {
+  max-width: 50%;
+  margin: left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #000;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1.05rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 2;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: brown;
+}
+
+input{
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  margin: auto;
+  align-items: center;
+}
+
+.btn {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.btn:hover {
+	background-color:#5cbf2a;
+}
+
+.btn:active {
+	position:relative;
+	top:1px;
+}
+
+.alert-danger {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.alert {
+	position: relative;
+	border-radius: .4rem;
+}
+
+.alert:after {
+	margin: auto;
+  display: block;
+  position: relative;
+	width: auto;
+	height: auto;
+}
+.hide{
+  display: none;
+}
+.grid-container {
+  display: inline-grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu auto auto auto auto auto '
+    'menu auto auto auto auto auto '
+    'menu auto auto auto auto auto ';
+  padding: 2px;
+}
+.header{
+  background-color: yellowgreen;
+  grid-area: header; 
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: center;
+}
+.menu{
+  background-color: yellow;
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: left;
+  grid-area: menu;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(22, 18, 18, 0.8);
+  padding: 50px;
+  font-size: 10px;
+  text-align: left;
+}
