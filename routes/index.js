@@ -1,12 +1,15 @@
-const settingsRoute = require("./settings");
-const surveyRoute = require("./survey");
+const dashboardRoute = require("./dashboard");
+const inviteFormRoute = require("./inviteForm");
 const path = require("path");
 
 const constructorMethod = app => {
-  app.use("/settings", settingsRoute);
-  app.use("/survey", surveyRoute);
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve("static/login.html"));
+  });
+  app.use("/dashboard", dashboardRoute);
+  app.use("/inviteForm", inviteFormRoute);
   app.use("*", (req, res) => {
-    res.redirect("/survey");
+    res.redirect("/dashboard");
   });
 };
 

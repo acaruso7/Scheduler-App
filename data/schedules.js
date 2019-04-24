@@ -2,6 +2,12 @@ const collections = require("./collections");
 const schedules = collections.schedules;
 const {ObjectId} = require('mongodb');
 
+async function getAll() {
+    const schedulesCollection = await schedules();  
+    const allSchedules = await schedulesCollection.find({}).toArray();
+    return allSchedules;
+}
+
 async function create(creator, dateCreated, title, description){
     if(!creator) throw "You must have a creator!";
     if(typeof creator !== "string") throw `'creator' must be a string. The inputted value is of type ${typeof creator}`
@@ -150,6 +156,7 @@ async function removeSchedule(scheduleId){
 
 
 module.exports = {
+    getAll,
     create,
     getScheduleByID,
     addUserToSchedule,
