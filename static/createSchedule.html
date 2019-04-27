@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body >
+    <main >
+        <h1>Create a Schedule</h1>
+        <form action="/createSchedule" method="POST" >
+            <div class="container">
+                <div class="card createScheduleForm">
+                    <label>
+                        Meeting Title
+                        <input type="text" name="title" placeholder="Enter a Meeting Title" class="full-width-input"/>
+                    </label>
+                    <label>
+                        Meeting Description
+                        <!-- <input type="text" name="description" placeholder="Enter a meeting description" class="full-width-input"/> -->
+                        <textarea type="text" name="description" rows="4" cols="50" placeholder='Enter a meeting description'>
+                        </textarea>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="example@gmail.com" class="full-width-input"/>
+                    </label>
+                    <label>
+                        Date
+                        <input type="date" name="date" placeholder="Enter a date" class="full-width-input"/>
+                    </label>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
