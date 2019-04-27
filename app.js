@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-// const bodyParser = require("body-parser");
 const configRoutes = require("./routes");
 const static = express.static(__dirname + "/public");
 const exphbs = require("express-handlebars");

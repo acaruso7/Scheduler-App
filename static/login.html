@@ -7,22 +7,41 @@
     <title>Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/site.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
-<body>
-    <main>
-        <h1>Login</h1>
-        <form action="/login" method="POST">
-            <label>
-                Email
-                <input type="email" name="username" placeholder="example@gmail.com" class="full-width-input"/>
-            </label>
-            <label>
-                Password
-                <input type="password" name="password" placeholder="Enter your password" class="full-width-input"/>
-            </label>
-            <button type="submit">Log in</button>
+<body >
+    <main >
+        <form action="/login" method="POST" >
+            <div class="container">
+                    <div class="card card-container">
+                        <div style="font-size: xx-large;color:rgb(27, 14, 211);font-family: 'Times New Roman', Times, serif;text-align: center"> <img src="../public/img/schedule.jpg" style="width: 100px;height: 100px;"></div>
+                        <p id="profile-name" class="profile-name-card"></p>
+                        <form class="form-signin">
+                            <span id="reauth-email" class="reauth-email"></span>
+                            <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
+                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                            <div id="remember" class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                        </form>
+                        <div>
+                            <a href="#" class="forgot-password">
+                                 Forgot Password?
+                            </a>
+                       
+                            <a href="#" class="sign-up" >
+                                 Sign Up
+                            </a>
+                        </div>                   
+                    </div>
+                </div>
         </form>
     </main>
 </body>
