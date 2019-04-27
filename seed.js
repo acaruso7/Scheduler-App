@@ -1,17 +1,23 @@
 const dbConnection = require('./data/connection');
 const data = require('./data/');
+const bcrypt = require('bcrypt');
 const users = data.users;
 const schedules = data.schedules;
 const notes = data.notes;
+const saltRound = 3;
 
 async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
-    
-    const user1 = await users.create("Alex Caruso", "acaruso@stevens.edu", 'password');
+    const password1 = await bcrypt.hash("admin123", saltRound);
+    const password2 = await bcrypt.hash("admin321", saltRound);
+    const user1 = await users.create("Alex Caruso", "acaruso@stevens.edu", password1);
     const user1Id = user1._id.toString()
-    const user2 = await users.create("John Doe", "johndoe@gmail", 'password');
+    const user2 = await users.create("John Doe", "johndoe@gmail", password2);
     const user2Id = user2._id.toString()
+
+    // const test = (await users.get(user1Id)).email
+    // console.log("test: ",test);
     // await users.getAll();
     // await users.get(user1Id)
 
