@@ -7,8 +7,13 @@ const userData = data.users;
 router.get("/", async (req, res) => {
   try {
     //update this code so it only sends schedules for the authenticated user - use router.get('/:userId)
-    const schedules = await scheduleData.getAll()
-    res.status(200).json(schedules)
+    const userId = req.session.userId;
+    const user = await userData.get(userId)
+    const scheduleIds = user.schedules
+    console.log(scheduleIds)
+    const user1_schedules = await scheduleData.getUserSchedules(scheduleIds)
+    console.log(user1_schedules)
+    res.status(200).json(user1_schedules)
   } catch (e) {
     console.log(e)
     res.status(500).send();
