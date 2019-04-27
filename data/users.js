@@ -52,5 +52,16 @@ module.exports = {
         }
 
         return await this.get(id)
+    },
+
+    async getUserIdByEmail(email){
+        if (!email) throw new Error("You must provide a user email");
+        if (typeof email !== 'string') throw new Error(`'email' must be a string. The inputted value is of type ${typeof email}`)
+        
+        const userCollection = await users();
+        const user = await userCollection.findOne({ email: email});
+        if (user === null) throw new Error("No user with that email");
+
+        return user._id.toString();
     }
 }
