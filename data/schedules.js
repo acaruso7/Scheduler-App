@@ -8,6 +8,16 @@ async function getAll() {
     return allSchedules;
 }
 
+async function getUserSchedules(scheduleIds) {
+    // scheduleIds is an array of schedule ids stored in the user collection
+    const schedulesCollection = await schedules();
+    for (let i=0; i < scheduleIds.length; i++) {
+        scheduleIds[i] = ObjectId(scheduleIds[i])
+    }
+    const userSchedules = await schedulesCollection.find({_id: { $in: scheduleIds }}).toArray()
+    return userSchedules
+}
+
 async function create(creator, dateCreated, title, description){
     if(!creator) throw "You must have a creator!";
     if(typeof creator !== "string") throw `'creator' must be a string. The inputted value is of type ${typeof creator}`
@@ -157,6 +167,7 @@ async function removeSchedule(scheduleId){
 
 module.exports = {
     getAll,
+    getUserSchedules,
     create,
     getScheduleByID,
     addUserToSchedule,
