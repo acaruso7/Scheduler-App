@@ -1,6 +1,9 @@
 const dashboardRoute = require("./dashboard");
 const inviteFormRoute = require("./inviteForm");
 const loginRoute = require("./login");
+const signupRoute = require("./signup");
+const createScheduleRoute = require("./createSchedule");
+const confirmRoute = require('./confirm')
 const path = require("path");
 
 const constructorMethod = app => {
@@ -16,6 +19,9 @@ const constructorMethod = app => {
   app.use("/dashboard", dashboardRoute);
   app.use("/inviteForm", inviteFormRoute);
   app.use("/login", loginRoute);
+  app.use("/signup", signupRoute);
+  app.use("/createSchedule", createScheduleRoute);
+  app.use('/confirm', confirmRoute);
   app.use("*", (req, res) => {
     res.redirect("/dashboard");
   });

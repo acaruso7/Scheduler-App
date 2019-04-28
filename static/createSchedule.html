@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<body >
+    <main >
+        <h1>Create a Schedule</h1>
+        <form action="/createSchedule" method="POST" id='createSchedule' >
+            <div class="container">
+                <div class="card createScheduleForm">
+                    <label>
+                        Meeting Title
+                        <input type="text" name="title" placeholder="Enter a Meeting Title" class="full-width-input"/>
+                    </label>
+                    <label>
+                        Meeting Description
+                        <textarea type="text" name="description" rows="4" cols="50" placeholder='Enter a meeting description'>
+                        </textarea>
+                    </label>
+                    <label>
+                        Email
+                        <div class="input_fields_wrap">
+                            <button class="add_field_button">Add More Emails</button>
+                            <div><input type="email" name="emails"></div>
+                        </div>
+                    </label>
+                    <label>
+                        Date
+                        <div class="input_fields_wrap2">
+                            <button class="add_field_button2">Add More Dates</button>
+                            <!-- <div><input type="date" name="mytext[]"></div> -->
+                            <div><input type="date" name="dates"></div>
+                        </div>
+                    </label>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+
+    </main>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="public/js/addField.js"></script>
+</body>
+
+</html>

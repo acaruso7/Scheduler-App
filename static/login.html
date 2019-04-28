@@ -15,7 +15,7 @@
 
 <body >
     <main >
-        <form action="/login" method="POST" >
+        <form action="/login" method="POST" id="loginForm">
             <div class="container">
                     <div class="card card-container">
                         <div style="font-size: xx-large;color:rgb(27, 14, 211);font-family: 'Times New Roman', Times, serif;text-align: center"> <img src="../public/img/schedule.jpg" style="width: 100px;height: 100px;"></div>
@@ -26,7 +26,7 @@
                             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
                             <div id="remember" class="checkbox">
                                 <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
+                                    <input type="checkbox" value="1" name="check"> Remember me
                                 </label>
                             </div>
                             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
@@ -36,7 +36,7 @@
                                  Forgot Password?
                             </a>
                        
-                            <a href="#" class="sign-up" >
+                            <a href="/signup" class="sign-up" >
                                  Sign Up
                             </a>
                         </div>                   

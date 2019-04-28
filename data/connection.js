@@ -1,6 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const mongoConfig = {
     "serverUrl": "mongodb://localhost:27017/",
+    // "serverUrl": "mongodb+srv://test:admin123@cluster0-t11vi.gcp.mongodb.net/test?retryWrites=true",
     "database": "Scheduler"
 }
 
