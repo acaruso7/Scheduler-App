@@ -31,9 +31,7 @@ app.use(session({
 app.use('/dashboard', (req, res, next) => {
   if(!req.session.isAuthenticated){
       res.status(403);
-      res.setHeader('Content-Type', 'text/html');
-      res.write('<a href="/">Please login</a>');
-      res.end();
+      res.render('error/error', {error: 'No authority!'});
   }
   else
       next();
