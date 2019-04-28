@@ -1,0 +1,38 @@
+<form action="/signup" method="POST" id="signupForm">
+    <div>
+        <label for="username">
+            email <input type="email" id="username" name="username" placeholder="Email address">
+        </label>
+
+        {{#if nameError}}
+        <p>username exist</p>
+        {{/if}}
+    </div>    
+   
+    <div>
+        <label for="password">
+            password <input type="password" id="password" name="password" placeholder="password">
+        </label>
+    </div>
+    
+    <div>
+        <label for="confirmPassword">
+            confirmPassword <input type="password" id="confirmPassword" name="confirmPassword" placeholder="confirmPassword">
+        </label>
+        {{#if notSameError}}
+        <p>password not same</p>
+        {{/if}}
+    </div>
+    
+    <div>
+        <label for="fullName">
+            fullName <input type="text" id="fullName" name="fullName" placeholder="fullName">
+        </label>
+    </div>
+
+    <div>
+        <button type="submit">sign up</button>
+    </div>
+    
+    
+</form>
