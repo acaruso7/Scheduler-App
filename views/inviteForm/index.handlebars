@@ -1,9 +1,30 @@
 <h1>{{title}}</h1>
 <p>{{description}}</p>
-{{#each dates}}  
-<ul>  
-    <li>
-        {{this}}
-    </li>  
-</ul>        
-{{/each}}
+<form action="/inviteForm" method="POST" id='inviteForm' >
+    <div class="container">
+        <div class="card createScheduleForm">
+            {{#each dates}}
+            <label>
+                {{this}}
+                <input type="radio" name="available" value="yes"> Yes<br>
+                <input type="radio" name="available" value="no"> No<br>
+            </label>
+            <label>
+                Times
+                <div class="input_fields_wrap">
+                    <button class="add_field_button">Add Another Time</button>
+                    <div>
+                        <select>
+                            <option value="1PM">1 PM</option>
+                            <option value="2PM">2 PM</option>
+                        </select>
+                    </div>
+                </div>
+            </label>
+            {{/each}}
+        </div>
+    </div>
+    <button type='submit'> Submit</button>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="public/js/addField.js"></script>
