@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const data = require('../data');
+const scheduleData = require('../data/schedules')
+const userData = require('../data/users')
 const path = require("path");
 
 router.get("/", async (req, res) => {
@@ -10,18 +12,26 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {  
     let title = req.body.title;
     let description = req.body.description;
-    let email = req.body.email;
-    let date = req.body.date;
+    let emails = req.body.emails;
+    let dates = req.body.dates;
+    let creator = req.session.userId;
+    var today = new Date();
 
-    // try {
-    //     const schedule = await scheduleData.getScheduleByID("5cbfa83324fa2b4510608fa8");
-    //     const title = schedule.title;
-    //     const description = schedule.description;
-    //     const dates = schedule.dates;
-    //     res.render('inviteForm', {title: title, description: description, dates: dates}) //handlebars templating
-    // } catch (e) {
-    //   res.status(500).send();
-    // }
+    try {
+        const schedule = await scheduleData.create(creator, today, title, description)
+        const scheduleId = schedule._id.toString()
+        for (i=0; i < dates.length; i++) {
+            await scheduleData.addDateToSchedule(scheduleId, new Date(dates[i]))
+        }
+
+        for (i=0; i < emails.length; i++) {
+            await scheduleData.addUserToSchedule(scheduleId, (await userData.getUserIdByEmail(emails[i])))
+        }
+        
+    } catch(e) {
+        res.status(500).send();
+        console.log(e)
+    }
     res.redirect('/confirm')
 });
 

@@ -9,14 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/public/css/main.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
 <body >
     <main >
         <h1>Create a Schedule</h1>
-        <form action="/createSchedule" method="POST" >
+        <form action="/createSchedule" method="POST" id='createSchedule' >
             <div class="container">
                 <div class="card createScheduleForm">
                     <label>
@@ -25,23 +23,33 @@
                     </label>
                     <label>
                         Meeting Description
-                        <!-- <input type="text" name="description" placeholder="Enter a meeting description" class="full-width-input"/> -->
                         <textarea type="text" name="description" rows="4" cols="50" placeholder='Enter a meeting description'>
                         </textarea>
                     </label>
                     <label>
                         Email
-                        <input type="email" name="email" placeholder="example@gmail.com" class="full-width-input"/>
+                        <div class="input_fields_wrap">
+                            <button class="add_field_button">Add More Emails</button>
+                            <div><input type="email" name="emails"></div>
+                        </div>
                     </label>
                     <label>
                         Date
-                        <input type="date" name="date" placeholder="Enter a date" class="full-width-input"/>
+                        <div class="input_fields_wrap2">
+                            <button class="add_field_button2">Add More Dates</button>
+                            <!-- <div><input type="date" name="mytext[]"></div> -->
+                            <div><input type="date" name="dates"></div>
+                        </div>
                     </label>
                     <button type="submit">Submit</button>
                 </div>
             </div>
         </form>
-    </main>
+
+
+    </main>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="public/js/addField.js"></script>
 </body>
 
 </html>

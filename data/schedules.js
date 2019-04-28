@@ -72,9 +72,9 @@ async function addUserToSchedule(scheduleId, userId){
     if(updatedInfo.matchedCount === 0)
         throw `Not find any document have id:${scheduleId}`;
     if(updatedInfo.modifiedCount === 0)
-        throw "Could not add successfully.";
+        throw "Could not add user successfully.";
 
-    return await getScheduleByID(scheduleId);
+    return;
 }
 
 async function addDateToSchedule(scheduleId, date){
@@ -92,9 +92,9 @@ async function addDateToSchedule(scheduleId, date){
     if(updatedInfo.matchedCount === 0)
         throw `Not find any document have id:${scheduleId}`;
     if(updatedInfo.modifiedCount === 0)
-        throw "Could not add successfully.";
+        throw "Could not add date successfully.";
 
-    return await getScheduleByID(scheduleId);
+    return;
 }
 
 async function addResponseToSchedule(scheduleId, userId){
