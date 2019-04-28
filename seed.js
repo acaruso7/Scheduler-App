@@ -25,7 +25,7 @@ async function main() {
 
 
     //create schedules
-    let schedule = await schedules.create("Alex", new Date("2019/4/8"), "first meeting", "this a description");
+    let schedule = await schedules.create(user1Id, new Date("2019/4/8"), "first meeting", "this a description");
     let scheduleId = schedule._id.toString();
     await schedules.addUserToSchedule(scheduleId, user1Id);
     await schedules.addUserToSchedule(scheduleId, user2Id);
@@ -36,7 +36,7 @@ async function main() {
     await schedules.addResponseToSchedule(scheduleId, user2Id);
     await schedules.addAvailabilityToResponse(scheduleId, user1Id, new Date("2019/04/12"), [1,2]);
     
-    let schedule2 = await schedules.create("John", new Date("2019/04/10"), "second meeting", "second meeting description")
+    let schedule2 = await schedules.create(user2Id, new Date("2019/04/10"), "second meeting", "second meeting description")
     let schedule2Id = schedule2._id.toString();
     await schedules.addUserToSchedule(schedule2Id, user2Id);
     await schedules.addUserToSchedule(schedule2Id, user3Id);
@@ -48,7 +48,7 @@ async function main() {
     await schedules.addAvailabilityToResponse(schedule2Id, user4Id, new Date("2019/04/15"), [3, 4]);
     await schedules.addAvailabilityToResponse(schedule2Id, user4Id, new Date("2019/04/17"), [9, 10]);
 
-    let schedule3 = await schedules.create("Haolin", new Date("2019/04/20"), "third meeting", "third meeting description")
+    let schedule3 = await schedules.create(user3Id, new Date("2019/04/20"), "third meeting", "third meeting description")
     let schedule3Id = schedule3._id.toString();
     await schedules.addUserToSchedule(schedule3Id, user2Id);
     await schedules.addUserToSchedule(schedule3Id, user3Id);
@@ -59,7 +59,7 @@ async function main() {
     await schedules.addResponseToSchedule(schedule3Id, user3Id);
     await schedules.addAvailabilityToResponse(schedule3Id, user3Id, new Date("2019/04/22"), [8, 9]);
 
-    let schedule4 = await schedules.create("Jane", new Date("2019/04/18"), "fourth meeting", "fourth meeting description")
+    let schedule4 = await schedules.create(user4Id, new Date("2019/04/18"), "fourth meeting", "fourth meeting description")
     let schedule4Id = schedule4._id.toString();
     await schedules.addUserToSchedule(schedule4Id, user3Id);
     await schedules.addUserToSchedule(schedule4Id, user4Id);
@@ -72,7 +72,7 @@ async function main() {
     await schedules.addAvailabilityToResponse(schedule4Id, user3Id, new Date("2019/04/26"), [3, 4]);
     await schedules.addAvailabilityToResponse(schedule4Id, user4Id, new Date("2019/04/26"), [12, 1]);
 
-    let schedule5 = await schedules.create("Yangyang", new Date("2019/05/01"), "fifth meeting", "fifth meeting description")
+    let schedule5 = await schedules.create(user5Id, new Date("2019/05/01"), "fifth meeting", "fifth meeting description")
     let schedule5Id = schedule5._id.toString();
     await schedules.addUserToSchedule(schedule5Id, user1Id);
     await schedules.addUserToSchedule(schedule5Id, user4Id);
@@ -87,7 +87,7 @@ async function main() {
     await schedules.addAvailabilityToResponse(schedule5Id, user4Id, new Date("2019/05/11"), [12, 1]);
     await schedules.addAvailabilityToResponse(schedule5Id, user4Id, new Date("2019/05/12"), [1, 4]);
 
-    let schedule6 = await schedules.create("Haolin", new Date("2019/05/13"), "sixth meeting", "sixth meeting description")
+    let schedule6 = await schedules.create(user1Id, new Date("2019/05/13"), "sixth meeting", "sixth meeting description")
     let schedule6Id = schedule6._id.toString();
     await schedules.addUserToSchedule(schedule6Id, user1Id);
     await schedules.addUserToSchedule(schedule6Id, user2Id);
