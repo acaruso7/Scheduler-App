@@ -6,8 +6,6 @@ const userData = data.users;
 
 
 router.post('/', async(req, res) => {
-    // console.log(req.body.username, req.body.password);
-
     let isRightPassword = false;
     let userId;
     // Check the username exsit or not. 
