@@ -1,4 +1,4 @@
-const dbConnection = require('./data/connection');
+const dbConnection = require('./config/connection');
 const data = require('./data/');
 const users = data.users;
 const schedules = data.schedules;
