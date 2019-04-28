@@ -40,17 +40,22 @@ section {
 
 
 .createdSchedule{
-    width:50%;
+    width:60%;
     float:left;
     padding: 30px;
     margin-top: 50px;
+    margin-left: 250px;
 }
 
 .invitedSchedule{
-    width:50%;
-    float: right;
+    width:60%;
+    float:left;
     padding: 30px;
     margin-top: 50px;
+    margin-left: 250px;
+}
+.hidden{
+    display: none;
 }
 @media(min-width:992px) {
     #wrapper{margin-left:70px}
