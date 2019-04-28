@@ -30,12 +30,15 @@
     <label>Schedule Been Created</label>
   </div>
 		<div >
-      {{#each creatd_schedules}}
+      {{#each created_schedules}}
             <div >
                 <div class="wrap">
                     <div class="text-wrap vcenter">
-                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5"><span>{{this.title}}</span></h2>
+                        <a href="/dashboard/{{this._id}}">
+                          <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5"><span>{{this.title}}</span></h2>
+                        </a>
                         <p class="mbr-fonts-style text1 mbr-text display-6">{{this.description}} </p>
+                        
                     </div>
                 </div>
             </div>
@@ -51,8 +54,10 @@
             <div >
                 <div class="wrap">
                     <div class="text-wrap vcenter">
+                      <a href="/dashboard/{{this._id}}">
                         <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5"><span>{{this.title}}</span></h2>
-                        <p class="mbr-fonts-style text1 mbr-text display-6"> {{this.description}}</p>
+                      </a>
+                      <p class="mbr-fonts-style text1 mbr-text display-6"> {{this.description}}</p>
                     </div>
                 </div>
             </div>

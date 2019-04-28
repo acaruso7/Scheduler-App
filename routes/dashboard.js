@@ -10,7 +10,6 @@ router.get("/", async (req, res) => {
     const user = await userData.get(userId)
     const scheduleIds = user.schedules //schedules the user has been invited to
     const user_schedules = await scheduleData.getUserSchedules(scheduleIds)
-    // res.status(200).json(user_schedules)
 
     let created_schedules = [];
     let invited_schedules = [];
