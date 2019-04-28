@@ -1,38 +1,35 @@
-<form action="/signup" method="POST" id="signupForm">
-    <div>
-        <label for="username">
-            email <input type="email" id="username" name="username" placeholder="Email address">
-        </label>
-
-        {{#if nameError}}
-        <p>username exist</p>
-        {{/if}}
-    </div>    
-   
-    <div>
-        <label for="password">
-            password <input type="password" id="password" name="password" placeholder="password">
-        </label>
-    </div>
-    
-    <div>
-        <label for="confirmPassword">
-            confirmPassword <input type="password" id="confirmPassword" name="confirmPassword" placeholder="confirmPassword">
-        </label>
-        {{#if notSameError}}
-        <p>password not same</p>
-        {{/if}}
-    </div>
-    
-    <div>
-        <label for="fullName">
-            fullName <input type="text" id="fullName" name="fullName" placeholder="fullName">
-        </label>
-    </div>
-
-    <div>
-        <button type="submit">sign up</button>
-    </div>
-    
-    
-</form>
+<form action="/signup" method="POST" id="signoutForm">
+            <div class="container">
+                    <div class="card card-container">
+                        <div style="font-size: xx-large;color:rgb(27, 14, 211);font-family: 'Times New Roman', Times, serif;text-align: center"> <img src="../public/img/schedule.jpg" style="width: 100px;height: 100px;"></div>
+                        <p id="profile-name" class="profile-name-card"></p>
+                        <form class="form-signin">
+                            <span id="reauth-email" class="reauth-email"></span>
+                            <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
+                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                            <input type="password" id="inputconfirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+                            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Full Name" required>
+                            <div><p></p></div>
+                            <div>
+                                {{#if nameError}}
+                                <p class="errorMessage">Username Exist</p>
+                                {{/if}}
+                                {{#if notSameError}}
+                                <p class="errorMessage">Password not same</p>
+                                {{/if}}
+                            </div>
+                            <div><p></p></div>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+                        </form>
+                        <div>
+                            <a href="/" class="back-to-login" >
+                                Already have a count?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </form>
+        <link rel="stylesheet" href="/public/css/main.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

@@ -150,4 +150,14 @@
     float:right;
 }
 
+.back-to-login{
+    color: rgb(104, 145, 162);
+    float:right;
+}
 
+/*
+ * error styles
+ */
+.errorMessage {
+    color: rgb(215, 28, 28);
+}
