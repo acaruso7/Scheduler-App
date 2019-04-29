@@ -5,7 +5,7 @@ const scheduleData = data.schedules;
 
 router.get("/", async (req, res) => {  
     try {
-        const schedule = await scheduleData.getScheduleByID("5cbfa83324fa2b4510608fa8");
+        const schedule = await scheduleData.getScheduleByID(req.session.scheduleId);
         const title = schedule.title;
         const description = schedule.description;
         const dates = schedule.dates;
@@ -14,5 +14,17 @@ router.get("/", async (req, res) => {
       res.status(500).send();
     }
 });
+
+router.post("/", async (req, res) => { 
+  let user = req.session.userId;
+  let scheduleId = req.session.scheduleId;
+  await scheduleData.addUserToSchedule(scheduleId, user)
+  await scheduleData.addResponseToSchedule(scheduleId, user)
+  for (var key in req.body) {
+    if (req.body[key][0]==='yes') {
+      await scheduleData.addAvailabilityToResponse(scheduleId, user, key, req.body[key].slice(1))
+    }
+  } 
+})
 
 module.exports = router;

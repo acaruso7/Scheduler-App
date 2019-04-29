@@ -1,9 +1,49 @@
-<h1>{{title}}</h1>
-<p>{{description}}</p>
-{{#each dates}}  
-<ul>  
-    <li>
-        {{this}}
-    </li>  
-</ul>        
-{{/each}}
+<form action="/inviteForm" method="POST" id='inviteForm' >
+    <div class="container">
+        <div class="card createScheduleForm">
+            <h1>{{title}}</h1>
+            <p>{{description}}</p>
+            {{#each dates}}
+            <label>
+                {{this}}
+                <br/>
+                <fieldset id={{this}}>
+                    <input type="radio" name={{this}} value="yes"> Yes<br>
+                    <input type="radio" name={{this}} value="no"> No<br>
+                </fieldset>
+            </label>
+            <label>
+                Times
+                {{!-- <div class="input_time_fields_wrap"> --}}
+                <div>
+                    <div>
+                        <fieldset id={{this}}>
+                            <select multiple name={{this}}>
+                                <option value="7 AM">7 AM</option>
+                                <option value="8 AM">8 AM</option>
+                                <option value="9 AM">9 AM</option>
+                                <option value="10 AM">10 AM</option>
+                                <option value="11 AM">11 AM</option>
+                                <option value="12 PM">12 PM</option>
+                                <option value="1 PM">1 PM</option>
+                                <option value="2 PM">2 PM</option>
+                                <option value="3 PM">3 PM</option>
+                                <option value="4 PM">4 PM</option>
+                                <option value="5 PM">5 PM</option>
+                                <option value="6 PM">6 PM</option>
+                                <option value="7 PM">7 PM</option>
+                                <option value="8 PM">8 PM</option>
+                                <option value="9 PM">9 PM</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                </div>
+            </label>
+            <hr>
+            {{/each}}
+            <button type='submit'> Submit</button>
+        </div>
+    </div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{{!-- <script src="public/js/addTime.js"></script> --}}
