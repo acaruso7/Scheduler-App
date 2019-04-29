@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require('../data');
 const scheduleData = data.schedules;
+const userData = data.users;
 
 router.get("/", async (req, res) => {  
     try {
@@ -19,6 +20,7 @@ router.post("/", async (req, res) => {
   try {
     let user = req.session.userId;
     let scheduleId = req.session.scheduleId;
+    await userData.addScheduleToUser(user, scheduleId)
     await scheduleData.addUserToSchedule(scheduleId, user)
     await scheduleData.addResponseToSchedule(scheduleId, user)
     for (var key in req.body) {
