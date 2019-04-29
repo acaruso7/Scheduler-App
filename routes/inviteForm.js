@@ -16,8 +16,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => { 
+  console.log('hit inviteForm POST route')
   console.log(req.body)
-  console.log(res.body)
 })
 
 module.exports = router;
