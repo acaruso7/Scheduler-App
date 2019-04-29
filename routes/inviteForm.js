@@ -16,8 +16,15 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => { 
-  console.log('hit inviteForm POST route')
-  console.log(req.body)
+  let user = req.session.userId;
+  let scheduleId = req.session.scheduleId;
+  await scheduleData.addUserToSchedule(scheduleId, user)
+  await scheduleData.addResponseToSchedule(scheduleId, user)
+  for (var key in req.body) {
+    if (req.body[key][0]==='yes') {
+      await scheduleData.addAvailabilityToResponse(scheduleId, user, key, req.body[key].slice(1))
+    }
+  } 
 })
 
 module.exports = router;
