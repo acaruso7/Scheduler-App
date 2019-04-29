@@ -16,15 +16,21 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => { 
-  let user = req.session.userId;
-  let scheduleId = req.session.scheduleId;
-  await scheduleData.addUserToSchedule(scheduleId, user)
-  await scheduleData.addResponseToSchedule(scheduleId, user)
-  for (var key in req.body) {
-    if (req.body[key][0]==='yes') {
-      await scheduleData.addAvailabilityToResponse(scheduleId, user, key, req.body[key].slice(1))
+  try {
+    let user = req.session.userId;
+    let scheduleId = req.session.scheduleId;
+    await scheduleData.addUserToSchedule(scheduleId, user)
+    await scheduleData.addResponseToSchedule(scheduleId, user)
+    for (var key in req.body) {
+      if (req.body[key][0]==='yes') {
+        await scheduleData.addAvailabilityToResponse(scheduleId, user, key, req.body[key].slice(1))
+      }
     }
-  } 
-})
+    res.redirect('/dashboard')
+  } catch(e) {
+    console.log(e)
+    res.status(500).send()
+  }
+});
 
 module.exports = router;
