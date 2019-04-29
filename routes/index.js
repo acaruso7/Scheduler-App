@@ -22,8 +22,13 @@ const constructorMethod = app => {
   app.use("/signup", signupRoute);
   app.use("/createSchedule", createScheduleRoute);
   app.use('/confirm', confirmRoute);
+  app.get('/logout', async(req, res) =>{
+    req.session.destroy();
+    res.clearCookie("AuthCookie");
+    res.sendFile(path.resolve("static/logout.html"));
+  });
   app.use("*", (req, res) => {
-    res.redirect("/dashboard");
+    res.redirect("/");
   });
 };
 

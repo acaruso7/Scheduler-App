@@ -1,4 +1,4 @@
-const collections = require("./collections");
+const collections = require("../config/collections");
 const schedules = collections.schedules;
 const {ObjectId} = require('mongodb');
 

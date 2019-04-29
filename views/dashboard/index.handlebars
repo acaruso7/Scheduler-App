@@ -1,9 +1,85 @@
-<table style="width:100%">
-  <tr>
-    <th>Test</th>
-    <th>Test</th> 
-  </tr>
-  <tr>
-    {{!-- <td>{{invited_schedules.title}}</td>  --}}
-  </tr>
-</table>
+  <div id="wrapper" class="animate">
+    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">DashBoard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav animate side-nav">
+
+          <li class="nav-item" id="scheduleCreate">
+            <a class="nav-link"  title="Cart"> <i class="fas fa-cart-plus"></i><span class="ttip">Schedule Been Created</span></a>
+          </li>
+          <li class="nav-item" id="scheduleInvited">
+            <a class="nav-link"  title="Comment"> <i class="fas fa-comment"></i><span class="ttip">Schedule Been Invited</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<div class="createdSchedule">
+  <div>
+    <label>Schedule Been Created</label>
+  </div>
+		<div >
+      {{#each created_schedules}}
+            <div >
+                <div class="wrap">
+                    <div class="text-wrap vcenter">
+                        <a href="/dashboard/{{this._id}}">
+                          <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5"><span>{{this.title}}</span></h2>
+                        </a>
+                        <p class="mbr-fonts-style text1 mbr-text display-6">{{this.description}} </p>
+                        
+                    </div>
+                </div>
+            </div>
+      {{/each}}
+    </div>
+</div>
+<div class="invitedSchedule">
+  <div>
+    <label>Schedule Been Invited</label>
+  </div>
+		<div >
+      {{#each invited_schedules}}
+            <div >
+                <div class="wrap">
+                    <div class="text-wrap vcenter">
+                      <a href="/dashboard/{{this._id}}">
+                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5"><span>{{this.title}}</span></h2>
+                      </a>
+                      <p class="mbr-fonts-style text1 mbr-text display-6"> {{this.description}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<script>
+  $(function () {  
+    $('.invitedSchedule').addClass("hidden");
+    $('#scheduleCreate').on('click',function(event){
+      event.preventDefault();
+      $('.invitedSchedule').addClass("hidden");
+      $('.createdSchedule').removeClass("hidden");
+    })
+    $('#scheduleInvited').on('click',function(event){
+      event.preventDefault();
+      $('.createdSchedule').addClass("hidden");
+      $('.invitedSchedule').removeClass("hidden");
+    })
+    $('.navbar-toggler').on('click', function(event) {
+		event.preventDefault();
+		$(this).closest('.navbar-minimal').toggleClass('open');
+	})
+});
+</script>

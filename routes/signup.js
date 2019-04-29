@@ -5,7 +5,7 @@ const data = require('../data');
 const userData = data.users;
 const saltRounds = 3;
 
-// *** get should be delete for the future
+// *** get mey be deleted for the future
 router.get('/', async(req, res) => {
     res.render('log/signup',{});
 });
