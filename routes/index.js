@@ -12,10 +12,17 @@ const constructorMethod = app => {
       res.redirect('/dashboard');
     }
     else{
+      res.sendFile(path.resolve("static/welcome.html"));
+    }
+  });
+  app.get("/signin", (req, res) => {
+    if(req.session.isAuthenticated){
+      res.redirect('/dashboard');
+    }
+    else{
       res.sendFile(path.resolve("static/login.html"));
     }
   });
-  
   app.use("/dashboard", dashboardRoute);
   app.use("/inviteForm", inviteFormRoute);
   app.use("/login", loginRoute);
