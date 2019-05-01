@@ -1,3 +1,4 @@
+
 # Scheduler-App
 A node.js schedule app like Doodle to find mutual meeting times among group members
 
@@ -10,6 +11,22 @@ A node.js schedule app like Doodle to find mutual meeting times among group memb
 
 ## Main idea
 The general idea for this app is to provide functionality to users to schedule meetings and agree upon a common date or time. This is similar to an app called Doodle. A single user can create a schedule, and specify the email addresses of group members he or she would like to invite to select a time they are available. For example, the creator of the schedule could create an event ‘CS546 Group Meeting’, select several potential meeting dates and times, and send out a blank schedule to group members based on email addresses. The members receiving the invite like will select the dates/times they are available to meet, which will be written to the database, and the schedule UI on the website will update. 
+
+## Quick Start
+Install dependencies
+```bash
+ npm install
+```
+
+Initalize database
+```bash
+ node seed.js
+```
+
+Start the server:
+```bash
+ npm start
+```
 
 ## Core Features
 * Create account / login
