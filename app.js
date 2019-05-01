@@ -27,11 +27,37 @@ app.use(session({
   }
 }));
 
-// middleware for dashborad
+// middleware
+// middleware for authentication
+app.get('/', (req, res, next) => {
+  if(req.session.isAuthenticated){
+      res.redirect('/dashboard');
+  }
+  else
+      next();
+});
+
+app.use('/login', (req, res, next) => {
+  if(req.session.isAuthenticated){
+      res.redirect('/dashboard');
+  }
+  else
+      next();
+});
+
 app.use('/dashboard', (req, res, next) => {
   if(!req.session.isAuthenticated){
       res.status(403);
       res.render('error/error', {error: 'No authority!'});
+  }
+  else
+      next();
+});
+
+app.use('/logout', (req, res, next) => {
+  if(!req.session.isAuthenticated){
+    res.status(403);
+    res.render('error/error', {error: 'No authority!'});
   }
   else
       next();

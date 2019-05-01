@@ -2,8 +2,12 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const data = require('../data');
+const path = require("path");
 const userData = data.users;
 
+router.get('/', async(req, res) => {
+    res.sendFile(path.resolve("static/login.html"));
+});
 
 router.post('/', async(req, res) => {
     let isRightPassword = false;

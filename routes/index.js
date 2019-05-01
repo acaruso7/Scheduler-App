@@ -7,21 +7,8 @@ const confirmRoute = require('./confirm')
 const path = require("path");
 
 const constructorMethod = app => {
-  app.get("/", (req, res) => {
-    if(req.session.isAuthenticated){
-      res.redirect('/dashboard');
-    }
-    else{
+  app.get("/", async (req, res) => {
       res.sendFile(path.resolve("static/welcome.html"));
-    }
-  });
-  app.get("/signin", (req, res) => {
-    if(req.session.isAuthenticated){
-      res.redirect('/dashboard');
-    }
-    else{
-      res.sendFile(path.resolve("static/login.html"));
-    }
   });
   app.use("/dashboard", dashboardRoute);
   app.use("/inviteForm", inviteFormRoute);
@@ -29,12 +16,12 @@ const constructorMethod = app => {
   app.use("/signup", signupRoute);
   app.use("/createSchedule", createScheduleRoute);
   app.use('/confirm', confirmRoute);
-  app.get('/logout', async(req, res) =>{
+  app.get('/logout', async (req, res) =>{
     req.session.destroy();
     res.clearCookie("AuthCookie");
     res.sendFile(path.resolve("static/logout.html"));
   });
-  app.use("*", (req, res) => {
+  app.use("*", async (req, res) => {
     res.redirect("/");
   });
 };
