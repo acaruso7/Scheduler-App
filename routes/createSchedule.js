@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {  
+    // console.log(req.body)
     let title = req.body.title;
     let description = req.body.description;
     let emails = req.body.emails;
