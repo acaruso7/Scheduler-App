@@ -13,6 +13,10 @@ const constructorMethod = app => {
   app.use("/dashboard", dashboardRoute);
   app.use("/inviteForm", inviteFormRoute);
   app.use("/login", loginRoute);
+  app.get("/email", async (req, res) => {
+    req.session.fromEmail = true;
+    res.redirect('/login')
+  })
   app.use("/signup", signupRoute);
   app.use("/createSchedule", createScheduleRoute);
   app.use('/confirm', confirmRoute);
