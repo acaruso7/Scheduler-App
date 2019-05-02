@@ -39,7 +39,12 @@ app.get('/', (req, res, next) => {
 
 app.use('/login', (req, res, next) => {
   if(req.session.isAuthenticated){
-      res.redirect('/dashboard');
+      if(req.session.fromEmail){
+        res.redirect('/inviteForm')
+      }
+      else{
+        res.redirect('/dashboard');
+      }     
   }
   else
       next();
