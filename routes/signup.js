@@ -34,7 +34,12 @@ router.post('/', async(req, res) => {
         const newUser = await userData.create(req.body.fullName, req.body.username, hashedPassword);
         req.session.isAuthenticated = true;
         req.session.userId = newUser._id.toString();
-        res.redirect('/dashboard');
+        if(req.session.fromEmail){
+            res.redirect('/inviteForm');
+        }
+        else{
+            res.redirect('/dashboard');
+        }   
     } catch (e) {
         res.render('error/error', {error: e});
     }

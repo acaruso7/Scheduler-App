@@ -19,20 +19,28 @@ router.post("/", async (req, res) => {
     let creator = req.session.userId;
     var today = new Date();
 
+    
+
     try {
         const schedule = await scheduleData.create(creator, today, title, description)
         req.session.scheduleId = schedule._id;
         const scheduleId = schedule._id.toString()
+        if(typeof dates === "string"){
+            dates = [dates];
+        }
         for (i=0; i < dates.length; i++) {
             await scheduleData.addDateToSchedule(scheduleId, new Date(dates[i]))
+        }
+        if(typeof emails === "string"){
+            emails = [emails];
         }
         for (i=0; i < emails.length; i++) {
             emailer.sendMail({
                 emailConfig: emailConfig.emailConfig,
                 to: emails[i],
                 subject: 'ScheduleMe Invitation to Edit',
-                content: "You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: \n \
-                http:/localhost:3000/email",
+                content: `You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: \n \
+                http://localhost:3000/email/${schedule._id}`,
             });
         }   
     } catch(e) {

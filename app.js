@@ -31,7 +31,12 @@ app.use(session({
 // middleware for authentication
 app.get('/', (req, res, next) => {
   if(req.session.isAuthenticated){
+    if(req.session.fromEmail){
+      res.redirect('/inviteForm');
+    }
+    else{
       res.redirect('/dashboard');
+    }    
   }
   else
       next();
@@ -39,10 +44,23 @@ app.get('/', (req, res, next) => {
 
 app.use('/login', (req, res, next) => {
   if(req.session.isAuthenticated){
-      res.redirect('/dashboard');
+      if(req.session.fromEmail){
+        res.redirect('/inviteForm');
+      }
+      else{
+        res.redirect('/dashboard');
+      }     
   }
   else
       next();
+});
+
+app.use('/signup', (req, res, next) => {
+  if(req.session.isAuthenticated){
+    res.redirect('/dashboard');
+  }
+  else
+      next();    
 });
 
 app.use('/dashboard', (req, res, next) => {
@@ -52,6 +70,7 @@ app.use('/dashboard', (req, res, next) => {
   }
   else
       next();
+     
 });
 
 app.use('/logout', (req, res, next) => {

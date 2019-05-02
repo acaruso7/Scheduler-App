@@ -10,14 +10,15 @@ const constructorMethod = app => {
   app.get("/", async (req, res) => {
       res.sendFile(path.resolve("static/welcome.html"));
   });
-  app.use("/dashboard", dashboardRoute);
-  app.use("/inviteForm", inviteFormRoute);
-  app.use("/login", loginRoute);
-  app.get("/email", async (req, res) => {
+  app.get("/email/:scheduleId", async (req, res) => {
+    req.session.scheduleId = req.params.scheduleId;
     req.session.fromEmail = true;
     res.redirect('/login')
   })
+  app.use("/login", loginRoute);
   app.use("/signup", signupRoute);
+  app.use("/dashboard", dashboardRoute);
+  app.use("/inviteForm", inviteFormRoute);
   app.use("/createSchedule", createScheduleRoute);
   app.use('/confirm', confirmRoute);
   app.get('/logout', async (req, res) =>{
