@@ -1,25 +1,22 @@
+const path = require("path");
 const express = require("express");
 const router = express.Router();
 const scheduleData = require('../data/schedules')
-const userData = require('../data/users')
-const path = require("path");
 const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
+// const xss = require("xss");
 
 router.get("/", async (req, res) => {
     res.sendFile(path.resolve("static/createSchedule.html"));
 });
 
 router.post("/", async (req, res) => {  
-    // console.log(req.body)
     let title = req.body.title;
     let description = req.body.description;
     let emails = req.body.emails;
     let dates = req.body.dates;
     let creator = req.session.userId;
     var today = new Date();
-
-    
 
     try {
         const schedule = await scheduleData.create(creator, today, title, description)
