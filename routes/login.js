@@ -35,7 +35,12 @@ router.post('/', async(req, res) => {
 
     req.session.isAuthenticated = true;
     req.session.userId = userId;
-    res.redirect('/dashboard');
+    if(req.session.fromEmail){
+        res.redirect('/inviteForm');
+    }
+    else{
+        res.redirect('/dashboard');
+    }   
 
 });
 

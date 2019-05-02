@@ -56,12 +56,11 @@ app.use('/login', (req, res, next) => {
 });
 
 app.use('/signup', (req, res, next) => {
-    if(req.session.fromEmail){
-      res.redirect('/inviteForm');
-    }
-    else{
-      res.redirect('/dashboard');
-    }     
+  if(req.session.isAuthenticated){
+    res.redirect('/dashboard');
+  }
+  else
+      next();    
 });
 
 app.use('/dashboard', (req, res, next) => {
