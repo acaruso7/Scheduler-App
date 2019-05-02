@@ -31,10 +31,9 @@ router.post("/", async (req, res) => {
                 emailConfig: emailConfig.emailConfig,
                 to: emails[i],
                 subject: 'ScheduleMe Invitation to Edit',
-                content: "You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link:",
+                content: "You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: \n \
+                http:/localhost:3000/email",
             });
-            //must create account first!
-            // await scheduleData.addUserToSchedule(scheduleId, (await userData.getUserIdByEmail(emails[i])))
         }   
     } catch(e) {
         res.status(500).send();
