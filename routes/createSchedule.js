@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
                 to: emails[i],
                 subject: 'ScheduleMe Invitation to Edit',
                 content: "You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: \n \
-                http:/localhost:3000/email",
+                http://localhost:3000/email",
             });
         }   
     } catch(e) {
