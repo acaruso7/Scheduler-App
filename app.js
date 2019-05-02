@@ -73,6 +73,24 @@ app.use('/dashboard', (req, res, next) => {
      
 });
 
+app.use('/createSchedule', (req, res, next) => {
+  if(!req.session.isAuthenticated){
+    res.status(403);
+    res.render('error/error', {error: 'No authority!'});
+  }
+  else
+      next();
+});
+
+app.use('/inviteForm', (req, res, next) => {
+  if(!req.session.isAuthenticated){
+    res.status(403);
+    res.render('error/error', {error: 'No authority!'});
+  }
+  else
+      next();
+});
+
 app.use('/logout', (req, res, next) => {
   if(!req.session.isAuthenticated){
     res.status(403);
