@@ -1,0 +1,27 @@
+<div class="jumbotron text-center" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Hong_Kong_at_night.jpg/1400px-Hong_Kong_at_night.jpg); background-size:cover;">
+    <h1 style="color:honeydew">Schedule Information</h1>
+</div>
+<input id="dates" type="hidden">
+<input id="username" type="hidden">
+<table id="grid" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            {{#each dates}}
+            <th class="text-center">
+                {{this}}<br>
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each row}}
+        <tr>
+            {{#each this}}
+                <td class="text-nowrap" scope="row"> {{this}}</td>
+            {{/each}}
+        </tr>
+        {{/each}}
+
+    </tbody>
+</table>
