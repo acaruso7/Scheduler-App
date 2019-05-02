@@ -18,18 +18,19 @@ router.post("/", async (req, res) => {
     let creator = req.session.userId;
     var today = new Date();
 
+    if(typeof emails === "string"){
+        emails = [emails];
+    }
+    if(typeof dates === "string"){
+        dates = [dates];
+    }
+
     try {
-        const schedule = await scheduleData.create(creator, today, title, description)
+        const schedule = await scheduleData.create(creator, today, title, description, emails.length + 1)
         req.session.scheduleId = schedule._id;
         const scheduleId = schedule._id.toString()
-        if(typeof dates === "string"){
-            dates = [dates];
-        }
         for (i=0; i < dates.length; i++) {
             await scheduleData.addDateToSchedule(scheduleId, new Date(dates[i]))
-        }
-        if(typeof emails === "string"){
-            emails = [emails];
         }
         for (i=0; i < emails.length; i++) {
             emailer.sendMail({

@@ -3,6 +3,8 @@ const router = express.Router();
 const data = require('../data');
 const scheduleData = data.schedules;
 const userData = data.users;
+const emailConfig = require('../config/email')
+const emailer = require('node-email-sender');
 
 router.get("/", async (req, res) => {  
     try {
@@ -11,7 +13,9 @@ router.get("/", async (req, res) => {
         const description = schedule.description;
         let dates = schedule.dates;
         for (let i=0; i < dates.length; i++) {
+          console.log(dates[i])
           dates[i] = dates[i].toDateString()
+          console.log(dates[i])
           dates[i] = dates[i].replace(/\s/g, '-');
         }
         res.render('inviteForm', {title: title, description: description, dates: dates}) //handlebars templating
@@ -33,6 +37,24 @@ router.post("/", async (req, res) => {
         await scheduleData.addAvailabilityToResponse(scheduleId, user, new Date(date), req.body[date].slice(1))
       }
     }
+    let schedule = await scheduleData.getScheduleByID(scheduleId)
+    let invitees = schedule.users;
+    let responses = schedule.responses;
+    let numInvitees = schedule.numInvitees;
+
+    if (numInvitees === responses.length) {
+      for (let i = 0; i < invitees.length; i++) {
+        const oneInvitee = invitees[i];
+        emailer.sendMail({
+          emailConfig: emailConfig.emailConfig,
+          to: (await userData.get(oneInvitee)).email,
+          subject: 'ScheduleMe Final Schedule',
+          content: `Everyone has responded to your ScheduleMe schedule. Please find the final version at the following link: \n \
+          http://localhost:3000/dashboard/${scheduleId}`
+        });
+      }
+    } 
+
     res.redirect('/dashboard')
   } catch(e) {
     console.log(e)
