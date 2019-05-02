@@ -18,7 +18,7 @@ async function getUserSchedules(scheduleIds) {
     return userSchedules
 }
 
-async function create(creator, dateCreated, title, description){
+async function create(creator, dateCreated, title, description, numInvitees){
     if(!creator) throw "You must have a creator!";
     if(typeof creator !== "string") throw `'creator' must be a string. The inputted value is of type ${typeof creator}`
     //
@@ -33,7 +33,8 @@ async function create(creator, dateCreated, title, description){
         creator: creator,
         dateCreated: dateCreated,
         title: title,
-        description, description,
+        description: description,
+        numInvitees: numInvitees,
         users: [],
         dates: [],
         responses: []
