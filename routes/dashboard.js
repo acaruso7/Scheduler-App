@@ -86,7 +86,7 @@ router.post("/:scheduleId", async (req, res) => {
   try {
     const user = await userData.get(req.session.userId)
     const userName = user['fullName']
-    await notesData.createNote(req.params.scheduleId, req.session.userId, userName, req.body.comment)
+    const note = await notesData.createNote(req.params.scheduleId, req.session.userId, userName, req.body.comment)
     res.redirect(`/dashboard/${req.params.scheduleId}`)
   } catch(e) {
     console.log(e)
