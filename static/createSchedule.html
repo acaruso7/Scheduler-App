@@ -14,26 +14,26 @@
 
 <body >
     <main >
-            <div id="wrapper" class="animate">
-                    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-                      <a class="navbar-brand" href="#">Create a New Schedule</a>
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarText">
-                       
-                        <ul class="navbar-nav ml-md-auto d-md-flex">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/dashboard"><i class="fas fa-key"></i> DashBoard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
-                            </li>
-                        </ul>
-                      </div>
-                    </nav>
-            </div>
+        <div id="wrapper" class="animate">
+            <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Create a New Schedule</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                
+                <ul class="navbar-nav ml-md-auto d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard"><i class="fas fa-key"></i> DashBoard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
         <form action="/createSchedule" method="POST" id='createSchedule' >
             <!-- <div class="container">
                 <div class="card createSchedule">
@@ -86,13 +86,13 @@
                                 <div class="form-group">
                                   <label class="control-label col-sm-12" for="fname">Meeting Title:</label>
                                   <div class="col-sm-10">          
-                                        <input type="text" name="title" placeholder="Enter a Meeting Title" class="full-width-input"/>
+                                        <input type="text" name="title" placeholder="Enter a Meeting Title" class="full-width-input" required/>
                                   </div>
                                 </div>
                                 <div class="form-group">
                                   <label class="control-label col-sm-12" for="lname">Meeting Description:</label>
                                   <div class="col-sm-10">          
-                                        <textarea type="text" name="description" rows="4" cols="50" placeholder='Enter a meeting description'></textarea>        
+                                        <textarea type="text" name="description" rows="4" cols="50" placeholder='Enter a meeting description' required></textarea>        
                                   </div>
                                 </div>
                                 <div class="form-group">
@@ -100,7 +100,7 @@
                                     <div class="col-sm-10">
                                             <div class="input_email_fields_wrap">
                                                 <button class="add_email_field_button">Add Another Email</button>
-                                                <div><input type="email" name="emails"></div>     
+                                                <div><input type="email" name="emails" required></div>     
                                             </div>
                                       </div>
                                 </div>
@@ -109,7 +109,7 @@
                                   <div class="col-sm-10">
                                         <div class="input_date_fields_wrap">
                                             <button class="add_date_field_button">Add Another Date</button>
-                                            <div><input type="date" name="dates"></div>   
+                                            <div><input type="date" name="dates" required></div>   
                                         </div>
                                   </div>
                                 </div>
