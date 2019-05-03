@@ -1,9 +1,27 @@
+  <div id="wrapper" class="animate">
+    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">DashBoard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard"><i class="fas fa-key"></i> DashBoard</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 <div class="jumbotron text-center" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Hong_Kong_at_night.jpg/1400px-Hong_Kong_at_night.jpg); background-size:cover;">
     <h1 style="color:honeydew">Schedule Information</h1>
 </div>
-<input id="dates" type="hidden">
-<input id="username" type="hidden">
-<table id="grid" class="table table-bordered table-striped">
+
+<table id="grid" class="table table-bordered table-striped" style="background:wheat">
     <thead>
         <tr>
             <th></th>
@@ -22,6 +40,7 @@
             {{/each}}
         </tr>
         {{/each}}
+
     </tbody>
 </table>
 
@@ -45,4 +64,3 @@
         {{/each}}
     </div>
 </div>
-
