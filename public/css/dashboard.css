@@ -37,7 +37,13 @@ section {
     margin: auto;
 }
 
-
+.createSchedule{
+    width:60%;
+    float:left;
+    padding: 30px;
+    margin-top: 50px;
+    margin-left: 250px;
+}
 
 .createdSchedule{
     width:60%;
