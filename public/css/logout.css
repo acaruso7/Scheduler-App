@@ -48,3 +48,14 @@ header {
       display: none;
     }
   }
+
+  ul li a {
+    color:#262626;
+    font-size:16px;
+    font-familY:arial;
+    text-transform: uppercase;
+    text-decoration:none;
+    font-weight:bold;
+    display:block;
+    position:relative;
+}
