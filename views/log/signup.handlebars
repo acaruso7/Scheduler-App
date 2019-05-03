@@ -12,18 +12,18 @@
                             <div><p></p></div>
                             <div>
                                 {{#if nameError}}
-                                <p class="errorMessage">Username Exist</p>
+                                <p class="errorMessage">Username Already Exists</p>
                                 {{/if}}
                                 {{#if notSameError}}
-                                <p class="errorMessage">Password not same</p>
+                                <p class="errorMessage">Passwords must match</p>
                                 {{/if}}
                             </div>
                             <div><p></p></div>
-                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Create an Account</button>
                         </form>
                         <div>
                             <a href="/login" class="back-to-login" >
-                                Already have a count?
+                                Already have an account?
                             </a>
                         </div>
                     </div>

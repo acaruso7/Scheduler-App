@@ -9,25 +9,25 @@
         <ul class="navbar-nav animate side-nav">
 
           <li class="nav-item" id="scheduleCreate">
-            <a class="nav-link"  title="Cart"> <i class="fas fa-cart-plus"></i><span class="ttip">Schedule Been Created</span></a>
+            <a class="nav-link"  title="Cart"> <i class="fas fa-cart-plus"></i><span class="ttip">Created Schedules</span></a>
           </li>
           <li class="nav-item" id="scheduleInvited">
-            <a class="nav-link"  title="Comment"> <i class="fas fa-comment"></i><span class="ttip">Schedule Been Invited</span></a>
+            <a class="nav-link"  title="Comment"> <i class="fas fa-comment"></i><span class="ttip">Invited Schedules</span></a>
           </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
-            <a class="nav-link" href="/createSchedule"><i class="fas fa-user"></i> Create</a>
+            <a class="nav-link" href="/createSchedule"><i class="fas fa-user"></i>Create a New Schedule</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
+            <a class="nav-link" href="/logout"><i class="fas fa-key"></i>Logout</a>
           </li>
         </ul>
       </div>
     </nav>
 <div class="createdSchedule">
   <div>
-    <label>Schedule Been Created</label>
+    <label>Created Schedules</label>
   </div>
 		<div >
       {{#each created_schedules}}
@@ -47,7 +47,7 @@
 </div>
 <div class="invitedSchedule">
   <div>
-    <label>Schedule Been Invited</label>
+    <label>Invited Schedules</label>
   </div>
 		<div >
       {{#each invited_schedules}}
