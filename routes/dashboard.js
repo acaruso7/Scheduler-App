@@ -33,7 +33,8 @@ router.get("/", async (req, res) => {
 router.get("/:scheduleId", async (req, res) => {
   try {
     const schedule = await scheduleData.getScheduleByID(req.params.scheduleId);
-    const notes = await notesData.getNotesByScheduleId(req.params.scheduleId);
+    let notes = await notesData.getNotesByScheduleId(req.params.scheduleId);
+    notes = notes.reverse()
 
     let griddata = [];
     let username =[];
