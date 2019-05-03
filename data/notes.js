@@ -13,6 +13,12 @@ module.exports = {
         return note;
     },
 
+    // async getNotesByScheduleId(id) {
+    //     if(!id) throw new Error("You must provide an id");
+    //     if(typeof id !== "string") throw new Error(`'id' must be a string. The inputted value is of type ${typeof id}`);
+    //     const noteCollection = await notes();
+    // }
+
     async createNote(scheduleId, userId, user, comment){
         if(!scheduleId||!userId||!user||!comment) throw new Error("One of scheduleId, userId, user, comment is undefined");
         if(typeof scheduleId !=="string"||typeof userId !== "string"||typeof user !=="string"||typeof comment!=="string") 
