@@ -1,76 +1,49 @@
- <link rel="stylesheet" href="/public/css/createschedule.css">
-  <div id="wrapper" class="animate">
-    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">DashBoard</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav ml-md-auto d-md-flex">
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard"><i class="fas fa-key"></i> DashBoard</a>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <div>
 <form action="/inviteForm" method="POST" id='inviteForm' >
-   <div class=" contact">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="contact-info">
-                                <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
-                                <h2>{{Title}}</h2>
-                                <h4>{{description}}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="contact-form">
-                                {{#each dates}}
-                                <div class="form-group">
-                                  <label class="control-label col-sm-12" for="fname">{{this}}</label>
-                                  <div class="col-sm-10">          
-                                       <fieldset id={{this}}>
-                                            <input type="radio" name={{this}} value="yes"> Yes<br>
-                                            <input type="radio" name={{this}} value="no"> No<br>
-                                        </fieldset>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="control-label col-sm-12" for="fname">Times</label>
-                                  <div class="col-sm-10">          
-                                        <fieldset id={{this}}>
-                                            <select multiple name={{this}} class="ddList">
-                                                <option value="7 AM">7 AM</option>
-                                                <option value="8 AM">8 AM</option>
-                                                <option value="9 AM">9 AM</option>
-                                                <option value="10 AM">10 AM</option>
-                                                <option value="11 AM">11 AM</option>
-                                                <option value="12 PM">12 PM</option>
-                                                <option value="1 PM">1 PM</option>
-                                                <option value="2 PM">2 PM</option>
-                                                <option value="3 PM">3 PM</option>
-                                                <option value="4 PM">4 PM</option>
-                                                <option value="5 PM">5 PM</option>
-                                                <option value="6 PM">6 PM</option>
-                                                <option value="7 PM">7 PM</option>
-                                                <option value="8 PM">8 PM</option>
-                                                <option value="9 PM">9 PM</option>
-                                            </select>
-                                        </fieldset>
-                                  </div>
-                                </div>
-                                {{/each}}
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="card createScheduleForm">
+            <h1>{{title}}</h1>
+            <p>{{description}}</p>
+            {{#each dates}}
+            <label>
+                {{this}}
+                <br/>
+                <fieldset id={{this}}>
+                    <input type="radio" name={{this}} value="yes"> Yes<br>
+                    <input type="radio" name={{this}} value="no"> No<br>
+                </fieldset>
+            </label>
+            <label>
+                Times
+                {{!-- <div class="input_time_fields_wrap"> --}}
+                <div>
+                    <div>
+                        <fieldset id={{this}}>
+                            <select multiple name={{this}}>
+                                <option value="7 AM">7 AM</option>
+                                <option value="8 AM">8 AM</option>
+                                <option value="9 AM">9 AM</option>
+                                <option value="10 AM">10 AM</option>
+                                <option value="11 AM">11 AM</option>
+                                <option value="12 PM">12 PM</option>
+                                <option value="1 PM">1 PM</option>
+                                <option value="2 PM">2 PM</option>
+                                <option value="3 PM">3 PM</option>
+                                <option value="4 PM">4 PM</option>
+                                <option value="5 PM">5 PM</option>
+                                <option value="6 PM">6 PM</option>
+                                <option value="7 PM">7 PM</option>
+                                <option value="8 PM">8 PM</option>
+                                <option value="9 PM">9 PM</option>
+                            </select>
+                        </fieldset>
                     </div>
-                </div>  
+                </div>
+            </label>
+            <hr>
+            {{/each}}
+            <button type='submit'> Submit</button>
+        </div>
+    </div>
 </form>
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 {{!-- <script src="public/js/addTime.js"></script> --}}

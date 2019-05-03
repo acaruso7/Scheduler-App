@@ -1,5 +1,5 @@
 body{
-    background:#262626;
+    background-color: #25274d;
 }
 .contact{
     padding: 4%;
@@ -38,8 +38,4 @@ body{
 .contact-form button:focus{
     box-shadow:none;
 }
-
-select { width: 100px; text-align:center; }
-select .lt { text-align:center; }
-select { text-indent: 5px; }
 
