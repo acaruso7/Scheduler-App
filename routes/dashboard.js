@@ -3,6 +3,7 @@ const router = express.Router();
 const data = require('../data');
 const scheduleData = data.schedules;
 const userData = data.users;
+const notesData = data.notes;
 
 router.get("/", async (req, res) => {
   try {
@@ -32,6 +33,7 @@ router.get("/", async (req, res) => {
 router.get("/:scheduleId", async (req, res) => {
   try {
     const schedule = await scheduleData.getScheduleByID(req.params.scheduleId);
+    const notes = await notesData.getNotesByScheduleId(req.params.scheduleId);
 
     let griddata = [];
     let username =[];
@@ -71,7 +73,7 @@ router.get("/:scheduleId", async (req, res) => {
         }
         row[i]=col;
     }
-    res.render('display',{ dates:dates, row:row });
+    res.render('display',{ dates:dates, row:row, notes: notes });
   } catch(e) {
     console.log(e)
     res.status(500).send()
