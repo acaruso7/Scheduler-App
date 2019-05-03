@@ -37,13 +37,12 @@ body{
 }
 .contact-form button:focus{
     box-shadow:none;
-<<<<<<< HEAD
+
 }
-=======
-}
+
 
 select { width: 100px; text-align:center; }
 select .lt { text-align:center; }
 select { text-indent: 5px; }
 
->>>>>>> aa46054
+
