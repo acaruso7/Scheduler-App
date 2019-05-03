@@ -45,22 +45,39 @@
 </table>
 
 <div id = "comment-container">
-    <div>
-        <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
-            <div class="form-group">
-                <label for="comment"></label>
-                <textarea class="form-control" name='comment' rows="5" id="comment" placeholder='Enter your comments here'></textarea>
-            </div>
-            <div>
-                <button type="submit"> Submit </button>
-            </div>
-        </form>
-    </div>
-    <div class="card">
-        {{#each notes}}
-            <p>{{this.user}}</p>
-            <p>{{this.comment}}</p>
-            <hr>
-        {{/each}}
-    </div>
+
+        <section class="comments">
+            <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
+            <article class="comment">
+                
+                <a class="comment-img" href="#non">
+                    <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
+                </a>
+                    
+                <div class="comment-body">
+                    <div class="text">
+                    <textarea class="form-control" name='comment' rows="5" id="comment" placeholder='Enter your comments here'></textarea>
+                    </div>
+                    <button type="submit"> Submit </button>
+                </div>
+            </article>
+            </form>
+        </section>
+        <section class="comments">
+            {{#each notes}}
+            <article class="comment">
+                <a class="comment-img" href="#non">
+                    <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
+                </a>
+                    
+                <div class="comment-body">
+                    <div class="text">
+                    <p>{{this.comment}}</p>
+                    </div>
+                    <p class="attribution">by <a href="#non">{{this.user}}</a></p>
+                </div>
+            </article>
+            {{/each}}
+        </section>
+    
 </div>
