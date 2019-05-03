@@ -1,5 +1,5 @@
 body{
-    background-color: #25274d;
+    background:#262626;
 }
 .contact{
     padding: 4%;
@@ -37,16 +37,12 @@ body{
 }
 .contact-form button:focus{
     box-shadow:none;
-<<<<<<< HEAD
-}
-=======
+
 }
 
-<<<<<<< HEAD
-=======
+
 select { width: 100px; text-align:center; }
 select .lt { text-align:center; }
 select { text-indent: 5px; }
 
->>>>>>> aa46054
->>>>>>> 201fa83267dbe95d6e7fdf0806b4cd945fa46b25
+
