@@ -13,9 +13,7 @@ router.get("/", async (req, res) => {
         const description = schedule.description;
         let dates = schedule.dates;
         for (let i=0; i < dates.length; i++) {
-          console.log(dates[i])
           dates[i] = dates[i].toDateString()
-          console.log(dates[i])
           dates[i] = dates[i].replace(/\s/g, '-');
         }
         res.render('inviteForm', {title: title, description: description, dates: dates}) //handlebars templating

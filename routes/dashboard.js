@@ -9,17 +9,16 @@ router.get("/", async (req, res) => {
     const userId = req.session.userId;
     const user = await userData.get(userId)
     const scheduleIds = user.schedules //schedules the user has been invited to
-    const user_schedules = await scheduleData.getUserSchedules(scheduleIds)
+    let user_schedules = await scheduleData.getUserSchedules(scheduleIds)
+    user_schedules = user_schedules.reverse()
 
     let created_schedules = [];
     let invited_schedules = [];
     for (let i = 0; i < user_schedules.length; i++) {
       if (user_schedules[i].creator === req.session.userId) {
         created_schedules.push(user_schedules[i])
-        // created_schedules[i].users =  //get user names form userIds
       } else {
         invited_schedules.push(user_schedules[i])
-
       }
     }
 
@@ -34,7 +33,6 @@ router.get("/:scheduleId", async (req, res) => {
   try {
     const schedule = await scheduleData.getScheduleByID(req.params.scheduleId);
 
-    console.log(schedule);
     let griddata = [];
     let username =[];
     for(let i=0;i<schedule.users.length;i++){
@@ -66,18 +64,14 @@ router.get("/:scheduleId", async (req, res) => {
         col[0]=username[i];
         for (let j = 1; j < dates.length+1; j++) {
           if(griddata[username[i]+dates[j-1]]==undefined){
-            col[j]="NotAvailable";
+            col[j]="Not Available";
           }else{
             col[j]=griddata[username[i]+dates[j-1]];
           }
         }
         row[i]=col;
     }
-    console.log(row);
-    res.render('display',{
-      dates:dates,
-      row:row
-    });
+    res.render('display',{ dates:dates, row:row });
   } catch(e) {
     console.log(e)
     res.status(500).send()

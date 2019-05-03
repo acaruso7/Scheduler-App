@@ -9,7 +9,7 @@
             e.preventDefault();
             if(x < max_fields){ 
                 x++;
-                $(wrapper).append('<div><input type="email" name="emails"/><a href="#" class="remove_field">Remove</a></div>');
+                $(wrapper).append('<div><input type="email" name="emails" required/><a href="#" class="remove_field">Remove</a></div>');
             }
         });
 
