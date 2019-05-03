@@ -22,6 +22,27 @@
             {{/each}}
         </tr>
         {{/each}}
-
     </tbody>
 </table>
+
+<div id = "comment-container">
+    <div>
+        <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
+            <div class="form-group">
+                <label for="comment"></label>
+                <textarea class="form-control" name='comment' rows="5" id="comment" placeholder='Enter your comments here'></textarea>
+            </div>
+            <div>
+                <button type="submit"> Submit </button>
+            </div>
+        </form>
+    </div>
+    <div class="card">
+        {{#each notes}}
+            <p>{{this.user}}</p>
+            <p>{{this.comment}}</p>
+            <hr>
+        {{/each}}
+    </div>
+</div>
+

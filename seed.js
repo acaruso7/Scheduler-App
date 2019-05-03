@@ -137,14 +137,35 @@ async function main() {
 
 
     // add comments / notes
+    //schedule1 comments
     let comment1 = "I can only meet on Monday";
-    let createOne = await notes.createNote(scheduleId, user1Id, user1['fullName'], comment1);
-    let getOne = await notes.getNoteById(createOne._id.toString())
-    let removeOne = await notes.removeNote(getOne._id.toString());
+    let comment2 = "I'm only availble from 1:30 - 2:00 on Monday"
+    await notes.createNote(scheduleId, user1Id, user1['fullName'], comment1);
+    await notes.createNote(scheduleId, user2Id, user2['fullName'], comment2);
 
-    let comment2 = "I can only meet on Wednesday";
-    let createTwo = await notes.createNote(scheduleId, user2Id, user2['fullName'], comment2);
-    let modifyOne = await notes.modifyNote(createTwo._id.toString(), "Modified note");
+    //schedule2 comments
+    let comment3 = "I can only meet on Wednesday";
+    let comment4 = "I may have to take a phone call during our meeting on Wednesday"
+    await notes.createNote(schedule2Id, user2Id, user2['fullName'], comment3);
+    await notes.createNote(schedule2Id, user3Id, user3['fullName'], comment4);
+
+    //schedule3 comments
+    let comment5 = "We can use the classroom to meet on Thursdays";
+    let comment6 = "Any time on Saturday works well for me"
+    await notes.createNote(schedule3Id, user3Id, user3['fullName'], comment5);
+    await notes.createNote(schedule3Id, user4Id, user4['fullName'], comment6);
+
+    //schedule4 comments
+    let comment7 = "I can only meet on Monday if I get my other project done first";
+    let comment8 = "I may have to take a phone call during our meeting on Monday";
+    await notes.createNote(schedule4Id, user4Id, user4['fullName'], comment7);
+    await notes.createNote(schedule4Id, user5Id, user5['fullName'], comment8);
+
+    //schedule5 comments
+    let comment9 = "My availability for Thursday may change in the next few days";
+    let comment10 = "I may have to take a phone call during our meeting on Wednesday"
+    await notes.createNote(schedule5Id, user4Id, user4['fullName'], comment9);
+    await notes.createNote(schedule5Id, user5Id, user5['fullName'], comment10);
     
     console.log('Done seeding database');
 }

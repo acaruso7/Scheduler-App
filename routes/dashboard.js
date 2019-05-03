@@ -3,6 +3,7 @@ const router = express.Router();
 const data = require('../data');
 const scheduleData = data.schedules;
 const userData = data.users;
+const notesData = data.notes;
 
 router.get("/", async (req, res) => {
   try {
@@ -32,6 +33,8 @@ router.get("/", async (req, res) => {
 router.get("/:scheduleId", async (req, res) => {
   try {
     const schedule = await scheduleData.getScheduleByID(req.params.scheduleId);
+    let notes = await notesData.getNotesByScheduleId(req.params.scheduleId);
+    notes = notes.reverse()
 
     let griddata = [];
     let username =[];
@@ -71,7 +74,20 @@ router.get("/:scheduleId", async (req, res) => {
         }
         row[i]=col;
     }
-    res.render('display',{ dates:dates, row:row });
+    res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes });
+  } catch(e) {
+    console.log(e)
+    res.status(500).send()
+  }
+});
+
+//post request for comments
+router.post("/:scheduleId", async (req, res) => {
+  try {
+    const user = await userData.get(req.session.userId)
+    const userName = user['fullName']
+    const note = await notesData.createNote(req.params.scheduleId, req.session.userId, userName, req.body.comment)
+    res.redirect(`/dashboard/${req.params.scheduleId}`)
   } catch(e) {
     console.log(e)
     res.status(500).send()
