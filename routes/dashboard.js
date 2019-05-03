@@ -73,7 +73,20 @@ router.get("/:scheduleId", async (req, res) => {
         }
         row[i]=col;
     }
-    res.render('display',{ dates:dates, row:row, notes: notes });
+    res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes });
+  } catch(e) {
+    console.log(e)
+    res.status(500).send()
+  }
+});
+
+//post request for comments
+router.post("/:scheduleId", async (req, res) => {
+  try {
+    const user = await userData.get(req.session.userId)
+    const userName = user['fullName']
+    await notesData.createNote(req.params.scheduleId, req.session.userId, userName, req.body.comment)
+    res.redirect(`/dashboard/${req.params.scheduleId}`)
   } catch(e) {
     console.log(e)
     res.status(500).send()

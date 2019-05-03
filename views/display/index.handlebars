@@ -24,28 +24,25 @@
         {{/each}}
     </tbody>
 </table>
+
 <div id = "comment-container">
     <div>
-        <form>
-            <div>
-                <textarea name="comments" id="comments" placeholder="Hey...Say Something..."></textarea>
+        <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
+            <div class="form-group">
+                <label for="comment"></label>
+                <textarea class="form-control" name='comment' rows="5" id="comment" placeholder='Enter your comments here'></textarea>
             </div>
             <div>
-                <input type="submit" value="Submit">
+                <button type="submit"> Submit </button>
             </div>
         </form>
     </div>
+    <div class="card">
+        {{#each notes}}
+            <p>{{this.user}}</p>
+            <p>{{this.comment}}</p>
+            <hr>
+        {{/each}}
+    </div>
 </div>
-<style>
-	textarea {
-		resize : none;
-		height : auto;
-		width: 30%;
-		margin-inline-start: 30%;
-		display: inline;
-	}
-	input {
-		margin-inline-start: 30%;
-		border-radius: 8px;
-	}
-</style>
+
