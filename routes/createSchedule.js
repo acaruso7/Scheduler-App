@@ -16,6 +16,7 @@ router.post("/", async (req, res) => {
     let description = req.body.description;
     let emails = req.body.emails;
     let dates = req.body.dates;
+    dates = dates.sort()
     let creator = req.session.userId;
     var today = new Date();
 
