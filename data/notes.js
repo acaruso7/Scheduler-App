@@ -67,5 +67,14 @@ module.exports = {
         if(updateOne.modifiedCount === 0) throw new Error("Unable to modify this note.");
         
         return await this.getNoteById(id);
-    }
+    },
+
+    async removeAllNoteBySchedule(scheduleId){
+        if(!scheduleId) throw new Error("You must input a scheduleId");
+        if(typeof scheduleId !=="string") throw new Error(`'scheduleId' must be a string. The inputted scheduleId is of type ${typeof scheduleId}`);
+        const noteCollection = await notes();
+        const deletedMany = await noteCollection.deleteMany({ scheduleId: scheduleId });
+        if(deletedMany === null) throw new Error("Failed to delete this note.");
+        return;
+    },
 };

@@ -77,7 +77,7 @@ router.get("/:scheduleId", async (req, res) => {
     res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes });
   } catch(e) {
     console.log(e)
-    res.status(500).render('error/error',{error: "Post Schedule fail!"});
+    res.status(500).render('error/error',{error: "Get Grid fail!"});
   }
 });
 
@@ -90,9 +90,24 @@ router.post("/:scheduleId", async (req, res) => {
     res.redirect(`/dashboard/${req.params.scheduleId}`)
   } catch(e) {
     console.log(e)
-    res.status(500).render('error/error',{error: "Get Grid fail!"});
+    res.status(500).render('error/error',{error: "Post Grid fail!"});
   }
 });
+
+//post req for delete
+
+router.post('/delete/:scheduleId', async (req, res) => {
+  try {
+    await scheduleData.removeSchedule(req.params.scheduleId);
+
+    // send email
+
+    res.redirect('/dashboard');
+  } catch (e) {
+    console.log(e)
+    res.status(500).render('error/error',{error: "Delete Grid fail!"});
+  }
+})
 
 module.exports = router;
 
