@@ -5,6 +5,7 @@ const scheduleData = data.schedules;
 const userData = data.users;
 const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
+const deployUrl = require('../config/deploy').url;
 
 router.get("/", async (req, res) => {  
     try {
@@ -48,7 +49,7 @@ router.post("/", async (req, res) => {
           to: (await userData.get(oneInvitee)).email,
           subject: 'ScheduleMe Final Schedule',
           content: `Everyone has responded to your ScheduleMe schedule. Please find the final version at the following link: \n \
-          http://localhost:3000/dashboard/${scheduleId}`
+          ${deployUrl}/dashboard/${scheduleId}`
         });
       }
     } 

@@ -4,6 +4,7 @@ const router = express.Router();
 const scheduleData = require('../data/schedules')
 const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
+const deployUrl = require('../config/deploy').url;
 // const xss = require("xss");
 
 router.get("/", async (req, res) => {
@@ -38,7 +39,7 @@ router.post("/", async (req, res) => {
                 to: emails[i],
                 subject: 'ScheduleMe Invitation to Edit',
                 content: `You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: \n \
-                http://localhost:3000/email/${schedule._id}`,
+                ${deployUrl}/email/${schedule._id}`,
             });
         }   
     } catch(e) {
