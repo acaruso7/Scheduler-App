@@ -52,17 +52,27 @@ body{
     padding-top: 45px;
 }
 
-/* .date-email {
+.date-email {
     width:100%;
 }
 
 .date {
-    float:left;
-    width: 50%
+    float: left;
+    width:50%;
 }
 
 .email {
     float:right;
+    width:50%;
+}
+
+/* .input_date_fields_wrap {
+    float: left;
+    width:50%;
+}
+
+.input_email_fields_wrap {
+    float: right;
     width:50%;
 } */
 
