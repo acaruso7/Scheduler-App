@@ -24,8 +24,8 @@
 </div>
 <div class="createdSchedule">
 		<div >
-      {{#each created_schedules}}
-        <div class="row mb-2 wrap">
+       {{#each created_schedules}}
+            <div class="row mb-2 wrap">
           <div class="col-md-12">
             <a href="/dashboard/{{this._id}}" >
                 <div class="card-body">
@@ -37,12 +37,15 @@
                         <h2 class="article-title">{{this.title}}</h2>
                         <p>{{this.description}}</p>
                         </div>
+                        <div class="animat-button">
+                            <button class="hoverable-css" value="{{this._id}}"><span class="anim"></span>DELETE</button>
+                        </div>
                     </div>
                 </div>
               </a>
             </div>
         </div>
-      {{/each}}
+        {{/each}}
     </div>
 </div>
 <div class="invitedSchedule">
@@ -60,6 +63,9 @@
                         <h2 class="article-title">{{this.title}}</h2>
                         <p>{{this.description}}</p>
                         </div>
+                        <div class="animat-button">
+                            <button class="hoverable-css" value="{{this._id}}"><span class="anim"></span>DELETE</button>
+                        </div>
                     </div>
                 </div>
               </a>
@@ -70,7 +76,7 @@
 </div>
 <script>
   $(function () {  
-    $('.invitedSchedule').addClass("hidden");
+    $('.createdSchedule').addClass("hidden");
     $('#scheduleCreate').on('click',function(event){
       event.preventDefault();
       $('.invitedSchedule').addClass("hidden");
@@ -84,6 +90,17 @@
     $('.navbar-toggler').on('click', function(event) {
 		event.preventDefault();
 		$(this).closest('.navbar-minimal').toggleClass('open');
+	})
+  $('.hoverable-css').on('click', function(e) {
+		e.preventDefault();
+		console.log($(this)[0].value);
+    $.ajax({
+      url: '/delete/'+$(this)[0].value,
+      type: 'DELETE',
+      success: function(result) {
+        alert("This schedule is deleted.")
+      }
+    });
 	})
 });
 </script>
