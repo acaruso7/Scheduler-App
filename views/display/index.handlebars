@@ -19,10 +19,10 @@
   </div>
 <div class="jumbotron text-center" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Hong_Kong_at_night.jpg/1400px-Hong_Kong_at_night.jpg); background-size:cover;">
     <h1 style="color:honeydew">{{schedule.title}}</h1>
-    <h4 style="color:honeydew">{{schedule.description}}</h4>
+    <h5 style="color:honeydew">{{schedule.description}}</h4>
 </div>
 
-<table id="grid" class="table table-bordered table-striped" style="background:#fff;width:70%;margin: auto;">
+<table id="grid" class="table table-bordered table-striped" style="background:#fff;width:70%;margin: auto; table-layout: fixed;">
     <thead>
         <tr>
             <th></th>
@@ -35,9 +35,9 @@
     </thead>
     <tbody>
         {{#each row}}
-        <tr>
+        <tr style='word-wrap:break-word;'>
             {{#each this}}
-                <td class="text-nowrap" scope="row"> {{this}}</td>
+                <td scope="row" style='text-align:center; vertical-align:middle;'> {{this}}</td>
             {{/each}}
         </tr>
         {{/each}}
@@ -45,31 +45,26 @@
     </tbody>
 </table>
 
-<div id = "comment-container" class="comment-container">
-
+<div id = "comment-container" class="comment-container" style='padding-bottom: 45px'>
         <section class="comments">
             <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
-            <article class="comment">
-                
+            <article class="comment">      
                 <a class="comment-img" href="#non">
                     <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
-                </a>
-                    
+                </a>                   
                 <div class="comment-body">
                     <div class="text">
-                    <textarea class="form-control" name='comment' rows="5" id="comment" placeholder='Enter your comments here'></textarea>
+                    <textarea class="form-control" name='comment' rows="2" id="comment" placeholder='Enter your comments here' required></textarea>
                     </div>
                     <button type="submit"> Submit </button>
                 </div>
             </article>
-            </form>
-        
+            </form>    
             {{#each notes}}
             <article class="comment">
                 <a class="comment-img" href="#non">
                     <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
-                </a>
-                    
+                </a>             
                 <div class="comment-body">
                     <div class="text">
                     <p>{{this.comment}}</p>
@@ -79,5 +74,4 @@
             </article>
             {{/each}}
         </section>
-    
 </div>
