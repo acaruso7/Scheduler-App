@@ -40,6 +40,41 @@ body{
 
 }
 
+.title-input {
+    width:80%;
+}
+
+.description-input {
+    width: 100%;
+}
+
+.row {
+    padding-top: 45px;
+}
+
+/* .date-email {
+    width:100%;
+}
+
+.date {
+    float:left;
+    width: 50%
+}
+
+.email {
+    float:right;
+    width:50%;
+} */
+
+/* .add_date_field_button {
+    width:80%;
+    white-space: nowrap;
+}
+
+.add_email_field_button {
+    width: 100%;
+    white-space: nowrap;
+} */
 
 select { width: 100px; text-align:center; }
 select .lt { text-align:center; }
