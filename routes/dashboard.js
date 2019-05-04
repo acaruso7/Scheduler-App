@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
     res.render('dashboard',{created_schedules: created_schedules, invited_schedules: invited_schedules});
   } catch (e) {
     console.log(e)
-    res.status(500).send();
+    res.status(500).render('error/error',{error: "Get Schedule fail!"});
   }
 });
 
@@ -77,7 +77,7 @@ router.get("/:scheduleId", async (req, res) => {
     res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes });
   } catch(e) {
     console.log(e)
-    res.status(500).send()
+    res.status(500).render('error/error',{error: "Post Schedule fail!"});
   }
 });
 
@@ -90,7 +90,7 @@ router.post("/:scheduleId", async (req, res) => {
     res.redirect(`/dashboard/${req.params.scheduleId}`)
   } catch(e) {
     console.log(e)
-    res.status(500).send()
+    res.status(500).render('error/error',{error: "Get Grid fail!"});
   }
 });
 

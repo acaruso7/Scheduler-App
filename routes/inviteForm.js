@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
         res.render('inviteForm', {title: title, description: description, dates: dates}) //handlebars templating
     } catch (e) {
       console.log(e)
-      res.status(500).send();
+      res.status(500).render('error/error',{error: "Get Invite Form fail!"});
     }
 });
 
@@ -57,7 +57,7 @@ router.post("/", async (req, res) => {
     res.redirect('/dashboard');
   } catch(e) {
     console.log(e)
-    res.status(500).send()
+    res.status(500).render('error/error',{error: "Post Invite Form fail"});
   }
 });
 

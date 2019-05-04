@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
             });
         }   
     } catch(e) {
-        res.status(500).send();
+        res.status(500).render('error/error',{error: "Create Schedule fail!"});
         console.log(e)
     }
     res.redirect('/inviteForm')
