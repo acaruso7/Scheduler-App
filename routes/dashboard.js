@@ -98,21 +98,9 @@ router.post("/:scheduleId", async (req, res) => {
 
 router.post('/delete/:scheduleId', async (req, res) => {
   try {
-    const user = await userData.get(req.session.userId)
-    const schedule = await scheduleData.getScheduleByID(req.params.scheduleId);
+    await scheduleData.removeSchedule(req.params.scheduleId);
 
-    // check user is creator or not 
-    let isCreator = false;
-    if(req.session.userId == schedule.creator)
-      isCreator = true;
-
-    // yes then delete
-    if(isCreator){
-      await scheduleData.removeSchedule(req.params.scheduleId);
-    }
-    else{// no then say cannot delete
-
-    }
+    // send email
 
     res.redirect('/dashboard');
   } catch (e) {
