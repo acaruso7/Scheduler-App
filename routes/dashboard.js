@@ -74,7 +74,7 @@ router.get("/:scheduleId", async (req, res) => {
         }
         row[i]=col;
     }
-    res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes });
+    res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes,schedule:schedule });
   } catch(e) {
     console.log(e)
     res.status(500).render('error/error',{error: "Get Grid fail!"});

@@ -1,6 +1,6 @@
   <div id="wrapper" class="animate">
     <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">DashBoard</a>
+      <a class="navbar-brand" href="#">{{schedule.title}}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,10 +18,11 @@
     </nav>
   </div>
 <div class="jumbotron text-center" style="background:url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Hong_Kong_at_night.jpg/1400px-Hong_Kong_at_night.jpg); background-size:cover;">
-    <h1 style="color:honeydew">Schedule Information</h1>
+    <h1 style="color:honeydew">{{schedule.title}}</h1>
+    <h4 style="color:honeydew">{{schedule.description}}</h4>
 </div>
 
-<table id="grid" class="table table-bordered table-striped" style="background:wheat">
+<table id="grid" class="table table-bordered table-striped" style="background:#fff;width:70%;margin: auto;">
     <thead>
         <tr>
             <th></th>
@@ -44,7 +45,7 @@
     </tbody>
 </table>
 
-<div id = "comment-container">
+<div id = "comment-container" class="comment-container">
 
         <section class="comments">
             <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
@@ -62,8 +63,7 @@
                 </div>
             </article>
             </form>
-        </section>
-        <section class="comments">
+        
             {{#each notes}}
             <article class="comment">
                 <a class="comment-img" href="#non">
@@ -74,7 +74,7 @@
                     <div class="text">
                     <p>{{this.comment}}</p>
                     </div>
-                    <p class="attribution">by <a href="#non">{{this.user}}</a></p>
+                    <p class="attribution">by {{this.user}}</p>
                 </div>
             </article>
             {{/each}}
