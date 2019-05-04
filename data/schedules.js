@@ -166,8 +166,6 @@ async function removeSchedule(scheduleId){
     if(deletedOne === null) throw new Error("Failed to delete this note.");
 
     // remove all user record
-    // const usersCollection = await usersData();
-    // console.log(deletedOne.value.users);
     let userList = deletedOne.value.users;
     
     for (let i = 0; i < userList.length; i++) {
@@ -175,7 +173,6 @@ async function removeSchedule(scheduleId){
         await usersData.removeOneScheduleByUserId(oneUser, scheduleId);
     }
     // remove all note record
-    // const notesCollection = await noteData();
     await noteData.removeAllNoteBySchedule(scheduleId);
     
     return deletedOne;
