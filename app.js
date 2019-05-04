@@ -87,6 +87,9 @@ app.use('/inviteForm', (req, res, next) => {
     res.status(403);
     res.render('error/error', {error: 'No authority!'});
   }
+  else if(!req.session.scheduleId){
+    res.redirect('/dashboard');
+  }
   else
       next();
 });

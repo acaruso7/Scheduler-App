@@ -53,8 +53,8 @@ router.post("/", async (req, res) => {
         });
       }
     } 
-
-    res.redirect('/dashboard')
+    delete req.session.scheduleId;
+    res.redirect('/dashboard');
   } catch(e) {
     console.log(e)
     res.status(500).send()
