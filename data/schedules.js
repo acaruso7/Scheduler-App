@@ -1,5 +1,8 @@
 const collections = require("../config/collections");
 const schedules = collections.schedules;
+const usersData = require('./users');
+const noteData = require('./notes');
+
 const {ObjectId} = require('mongodb');
 
 async function getAll() {
@@ -153,14 +156,28 @@ async function addAvailabilityToResponse(scheduleId, userId, date, times){
 }
 
 async function removeSchedule(scheduleId){
-    if(!id) throw new Error("You must input a note id");
-    if(typeof id !=="string") throw new Error(`'id' must be a string. The inputted id is of type ${typeof id}`);
+    if(!scheduleId) throw new Error("You must input a scheduleId");
+    if(typeof scheduleId !=="string") throw new Error(`'scheduleId' must be a string. The inputted scheduleId is of type ${typeof scheduleId}`);
 
     const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
     const schedulesCollection = await schedules();
 
     const deletedOne = await schedulesCollection.findOneAndDelete({ _id: scheduleObjectId});
     if(deletedOne === null) throw new Error("Failed to delete this note.");
+
+    // remove all user record
+    // const usersCollection = await usersData();
+    // console.log(deletedOne.value.users);
+    let userList = deletedOne.value.users;
+    
+    for (let i = 0; i < userList.length; i++) {
+        const oneUser = userList[i];
+        await usersData.removeOneScheduleByUserId(oneUser, scheduleId);
+    }
+    // remove all note record
+    // const notesCollection = await noteData();
+    await noteData.removeAllNoteBySchedule(scheduleId);
+    
     return deletedOne;
 }
 

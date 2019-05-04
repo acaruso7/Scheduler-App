@@ -43,7 +43,7 @@ module.exports = {
         if (!id) throw new Error("You must provide a user id");
         if (typeof id !== 'string') throw new Error(`'id' must be a string. The inputted value is of type ${typeof id}`)
         if (!scheduleId) throw new Error("You must provide a schedule id");
-        if (typeof scheduleId !== 'string') throw new Error(`'schedulId' must be a string. The inputted value is of type ${typeof scheduleId}`)
+        if (typeof scheduleId !== 'string') throw new Error(`'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`)
         
         const userCollection = await users();
         const addedSchedule = await userCollection.updateOne({ _id: ObjectId(id) }, { $addToSet: { schedules: scheduleId}}); 
@@ -63,5 +63,21 @@ module.exports = {
         if (user === null) throw new Error("No user with that email");
 
         return user._id.toString();
+    },
+
+    async removeOneScheduleByUserId(userId, scheduleId){
+        if (!userId) throw new Error("You must provide a user id");
+        if (typeof userId !== 'string') throw new Error(`'userId' must be a string. The inputted value is of type ${typeof userId}`)
+        if (!scheduleId) throw new Error("You must provide a schedule id");
+        if (typeof scheduleId !== 'string') throw new Error(`'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`)
+        
+        const userCollection = await users();
+        let updatedInfo = await userCollection.updateOne({_id: ObjectId(userId)}, {$pull: {schedules: scheduleId}});
+
+        if(updatedInfo.matchedCount === 0)
+        throw `Not find any user have id:${userId}`;
+        if(updatedInfo.modifiedCount === 0)
+        throw "Could not remove successfully.";
+        return 
     }
 }

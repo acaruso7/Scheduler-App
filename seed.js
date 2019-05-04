@@ -167,6 +167,9 @@ async function main() {
     await notes.createNote(schedule5Id, user4Id, user4['fullName'], comment9);
     await notes.createNote(schedule5Id, user5Id, user5['fullName'], comment10);
     
+    // //remove
+    // let test = await schedules.removeSchedule(scheduleId);
+
     console.log('Done seeding database');
 }
 
