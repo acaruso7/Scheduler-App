@@ -1,18 +1,14 @@
 (function($){
     $(document).ready(function() {
-        
-
-        var x = 1; 
-        $(add_button).click(function(e){ 
-            e.preventDefault();
-            if(x < max_fields){ 
-                x++;
-                $(wrapper).append('<div><fieldset><select name="times"><option value="1PM">1 PM<option/><option value="2PM">2 PM<option/> </select></fieldset><a href="#" class="remove_field">Remove</a></div>');
+        let t = $("#datesContainer").children.length;
+        document.getElementById("datesContainer").addEventListener('click', function(e){
+            let tof = e.target;
+            if(tof.value=="yes"){
+                e.target.parentNode.parentNode.parentNode.parentNode.children[1].removeAttribute("style","display:none");
             }
-        });
-
-        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-            e.preventDefault(); $(this).parent('div').remove(); x--;
-        })
+            if(tof.value=="no"){
+                e.target.parentNode.parentNode.parentNode.parentNode.children[1].setAttribute("style","display:none");
+            }
+        }, true);
     })
 }(jQuery));
