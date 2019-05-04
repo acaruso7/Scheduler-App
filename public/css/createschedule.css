@@ -52,6 +52,12 @@ body{
     padding-top: 45px;
 }
 
+/* .row_invite {
+    padding-top: 45px;
+    width: 80%;
+    margin: 0 auto;
+} */
+
 select { width: 100px; text-align:center; }
 select .lt { text-align:center; }
 select { text-indent: 5px; }

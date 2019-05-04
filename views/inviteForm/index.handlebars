@@ -21,62 +21,61 @@
   <div>
 <form action="/inviteForm" method="POST" id='inviteForm' >
    <div class=" contact">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="contact-info">
-                                <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
-                                <h2>{{Title}}</h2>
-                                <h4>{{description}}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div id="datesContainer"class="contact-form">
-                                {{#each dates}}
-                                <div>
-                                <div class="form-group">
-                                  <label class="control-label col-sm-12" for="fname">{{this}}</label>
-                                  <div id={{@index}} class="col-sm-10">          
-                                       <fieldset id={{this}}>
-                                            <input type="radio" name={{this}} value="yes" > Yes<br>
-                                            <input type="radio" name={{this}} value="no"> No<br>
-                                        </fieldset>
-                                  </div>
-                                </div>
-                                <div name = {{@index}} class="form-group">
-                                  <label class="control-label col-sm-12" for="fname">Times</label>
-                                  <div class="col-sm-10">          
-                                        <fieldset id={{this}}>
-                                            <select multiple name={{this}} class="ddList">
-                                                <option value="7 AM">7 AM</option>
-                                                <option value="8 AM">8 AM</option>
-                                                <option value="9 AM">9 AM</option>
-                                                <option value="10 AM">10 AM</option>
-                                                <option value="11 AM">11 AM</option>
-                                                <option value="12 PM">12 PM</option>
-                                                <option value="1 PM">1 PM</option>
-                                                <option value="2 PM">2 PM</option>
-                                                <option value="3 PM">3 PM</option>
-                                                <option value="4 PM">4 PM</option>
-                                                <option value="5 PM">5 PM</option>
-                                                <option value="6 PM">6 PM</option>
-                                                <option value="7 PM">7 PM</option>
-                                                <option value="8 PM">8 PM</option>
-                                                <option value="9 PM">9 PM</option>
-                                            </select>
-                                        </fieldset>
-                                  </div>
-                                </div>
-                                </div>
-                                {{/each}}
-                                <div class="form-group">        
-                                  <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default">Submit</button>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
+      <div class="row" style="padding-top:45px; width:70%; margin: 0 auto;">
+          <div class="col-md-3">
+              <div class="contact-info">
+                  {{!-- <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/> --}}
+                  <h2>{{title}}</h2>
+                  <h4>{{description}}</h4>
+              </div>
+          </div>
+          <div class="col-md-9">
+              <div id="datesContainer"class="contact-form">
+                <h5>  Select the dates and times you are available for this meeting</h5>
+                  {{#each dates}}
+                  <div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-12" for="fname">{{this}}</label>
+                    <div id={{@index}} class="col-sm-10">          
+                          <fieldset id={{this}}>
+                              <input type="radio" name={{this}} value="yes" > Yes<br>
+                              <input type="radio" name={{this}} value="no"> No<br>
+                          </fieldset>
                     </div>
-                </div>  
+                  </div>
+                  <div name = {{@index}} class="form-group" style="display:none">
+                    <div class="col-sm-10">          
+                          <fieldset id={{this}}>
+                              <input type="checkbox" value="7 AM" name={{this}}> 7 AM   
+                              <input type="checkbox" value="8 AM" name={{this}}> 8 AM
+                              <input type="checkbox" value="9 AM" name={{this}}> 9 AM
+                              <input type="checkbox" value="10 AM" name={{this}}> 10 AM
+                              <input type="checkbox" value="11 AM" name={{this}}> 11 AM
+                              <input type="checkbox" value="12 PM" name={{this}}> 12 PM
+                              <input type="checkbox" value="1 PM" name={{this}}> 1 PM <br>
+                              <input type="checkbox" value="2 PM" name={{this}}> 2 PM 
+                              <input type="checkbox" value="3 PM" name={{this}}> 3 PM 
+                              <input type="checkbox" value="4 PM" name={{this}}> 4 PM
+                              <input type="checkbox" value="5 PM" name={{this}}> 5 PM
+                              <input type="checkbox" value="6 PM" name={{this}}> 6 PM
+                              <input type="checkbox" value="7 PM" name={{this}}> 7 PM
+                              <input type="checkbox" value="8 PM" name={{this}}> 8 PM
+                              <input type="checkbox" value="9 PM" name={{this}}> 9 PM
+                          </fieldset>
+                    </div>
+                  </div>
+                  </div>
+                  <hr>
+                  {{/each}}
+                  <div class="form-group">        
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>  
 </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
