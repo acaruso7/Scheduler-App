@@ -96,7 +96,7 @@
 		console.log($(this)[0].value);
     $.ajax({
       url: '/delete/'+$(this)[0].value,
-      type: 'DELETE',
+      type: 'POST',
       success: function(result) {
         alert("This schedule is deleted.")
       }
