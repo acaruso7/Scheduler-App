@@ -40,6 +40,17 @@ body{
 
 }
 
+.title-input {
+    width:80%;
+}
+
+.description-input {
+    width: 100%;
+}
+
+.row {
+    padding-top: 45px;
+}
 
 select { width: 100px; text-align:center; }
 select .lt { text-align:center; }
