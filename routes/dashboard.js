@@ -4,6 +4,9 @@ const data = require('../data');
 const scheduleData = data.schedules;
 const userData = data.users;
 const notesData = data.notes;
+const emailConfig = require('../config/email')
+const emailer = require('node-email-sender');
+const deployUrl = require('../config/deploy').url;
 
 router.get("/", async (req, res) => {
   try {
@@ -98,9 +101,25 @@ router.post("/:scheduleId", async (req, res) => {
 
 router.post('/delete/:scheduleId', async (req, res) => {
   try {
-    await scheduleData.removeSchedule(req.params.scheduleId);
+    const schedule = await scheduleData.removeSchedule(req.params.scheduleId);
 
+    const usersList = schedule.users;
+    let emails = [];
+    for (let i = 0; i < usersList.length; i++) {
+      const oneUser = usersList[i];
+      emails.push((await userData.get(oneUser)).email);
+    }
     // send email
+
+    for (i=0; i < emails.length; i++) {
+      emailer.sendMail({
+          emailConfig: emailConfig.emailConfig,
+          to: emails[i],
+          subject: 'Schedule have been removed',
+          content: `Your previously invited schedule has been deleted by the creator \n \
+          Schedule title is: ${schedule.title}`,
+      });
+  }
 
     res.redirect('/dashboard');
   } catch (e) {
