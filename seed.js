@@ -22,7 +22,8 @@ async function main() {
     const user4Id = user4._id.toString()
     const user5 = await users.create("Yangyang Liu", "yangyangliu@gmail.com", password);
     const user5Id = user5._id.toString()
-
+    const user6 = await users.create("Jiawei Wang", "jiaweiwang@gmail.com", password);
+    const user6Id = user6._id.toString()
 
     //create schedules
     let schedule = await schedules.create(user1Id, new Date("2019/4/8"), "first meeting", "this a description", 3);
