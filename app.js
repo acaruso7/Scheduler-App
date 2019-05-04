@@ -103,7 +103,14 @@ app.use('/logout', (req, res, next) => {
 // config the routes
 configRoutes(app);
 
+// deploy locally
 app.listen(3000, () => {
   console.log("We've now got a server!");
   console.log("Your routes will be running on http://localhost:3000");
 });
+
+// // deploy on cloud
+// app.listen(8080, () => {
+//   console.log("We've now got a server!");
+//   console.log("Your routes will be running on http://localhost:8080");
+// });

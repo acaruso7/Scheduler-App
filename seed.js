@@ -18,7 +18,7 @@ async function main() {
     const user2Id = user2._id.toString()
     const user3 = await users.create("Jane Doe", "janedoe@gmail.com", password);
     const user3Id = user3._id.toString()
-    const user4 = await users.create("Haolin Yang", "haolinyang@gmail.com", password);
+    const user4 = await users.create("Haolin Yang", "haolinyang95@gmail.com", password);
     const user4Id = user4._id.toString()
     const user5 = await users.create("Yangyang Liu", "yangyangliu@gmail.com", password);
     const user5Id = user5._id.toString()

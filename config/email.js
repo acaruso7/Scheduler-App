@@ -1,4 +1,4 @@
-let emailConfig = {
+const emailConfig = {
     emailFrom: 'scheduleinvite@gmail.com',
     transporterConfig: {
         service: 'gmail',
