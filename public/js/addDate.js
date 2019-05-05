@@ -9,7 +9,25 @@
             e.preventDefault();
             if(x < max_fields){ 
                 x++;
-                $(wrapper).append('<div><input type="date" name="dates" required/><a href="#" class="remove_field">Remove</a></div>');
+                $(wrapper).append('<div><input id="datefield" type="date" name="dates" min="1899-01-01" required/><a href="#" class="remove_field">Remove</a></div>');
+               
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1;
+                var yyyy = today.getFullYear();
+                if(dd<10) {
+                    dd='0'+dd
+                } 
+                if(mm<10) {
+                    mm='0'+mm
+                } 
+                today = yyyy+'-'+mm+'-'+dd;
+
+                //prevent newly appended date selectors to have dates prior to today
+                var datefields = document.querySelectorAll("#datefield");
+                for (i=0; i<datefields.length; i++) {
+                    datefields[i].setAttribute("min", today)
+                }
             }
         });
 
