@@ -1,38 +1,37 @@
- <link rel="stylesheet" type="text/css" href="../public/css/logout.css" />
-  <div id="wrapper" class="animate">
-    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">DashBoard</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav ml-md-auto d-md-flex">
-          <li class="nav-item">
-            <a class="nav-link" href="/login"><i class="fas fa-key"></i>  Back to login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-<header>
-        <div class="overlay">
-            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class=" h-100">
-            <div class="d-flex text-center h-100">
-                <div class="my-auto w-100 text-white">
-                    <h1 class="display-3">{{error}}</h1>
-                    <h2>Error happens, click on Back to login to sign in.</h2>
+ <link rel="stylesheet" type="text/css" href="public/css/logout.css" />
+    <header>
+                <div class="overlay">
+                    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                      <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+                    </video>
                 </div>
-            </div>
-        </div>
-</header>
-
-
-  
+                <div class="container h-100">
+                    <div class="d-flex text-center h-100">
+                        <div class="my-auto w-100 text-white">
+                            <h1 class="display-3">{{error}}</h1>
+                      <h2>Error happens, click on Back to login to sign in.</h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+                  <main>
+                        <div id="wrapper" class="animate">
+                                <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+                                  <a class="navbar-brand" href="#">ScheduleMe</a>
+                                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                  </button>
+                                  <div class="collapse navbar-collapse" id="navbarText">
+                                   
+                                    <ul class="navbar-nav ml-md-auto d-md-flex">
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/signup"><i class="fas fa-key"></i> Create an Account</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/login"><i class="fas fa-key"></i> Sign In</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </nav>
+                  </main>

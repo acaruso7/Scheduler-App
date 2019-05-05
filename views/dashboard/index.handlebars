@@ -37,9 +37,12 @@
                         <h2 class="article-title">{{this.title}}</h2>
                         <p>{{this.description}}</p>
                         </div>
-                        <div class="animat-button">
+                        <form action="/dashboard/delete/{{this._id}}" method="POST" id={{this._id}} >
+                          <div class="animat-button">
                             <button class="hoverable-css" value="{{this._id}}"><span class="anim"></span>DELETE</button>
-                        </div>
+                          </div>
+                        </form>
+                        
                     </div>
                 </div>
               </a>
@@ -63,9 +66,6 @@
                         <h2 class="article-title">{{this.title}}</h2>
                         <p>{{this.description}}</p>
                         </div>
-                        <div class="animat-button">
-                            <button class="hoverable-css" value="{{this._id}}"><span class="anim"></span>DELETE</button>
-                        </div>
                     </div>
                 </div>
               </a>
@@ -74,33 +74,5 @@
         {{/each}}
     </div>
 </div>
-<script>
-  $(function () {  
-    $('.createdSchedule').addClass("hidden");
-    $('#scheduleCreate').on('click',function(event){
-      event.preventDefault();
-      $('.invitedSchedule').addClass("hidden");
-      $('.createdSchedule').removeClass("hidden");
-    })
-    $('#scheduleInvited').on('click',function(event){
-      event.preventDefault();
-      $('.createdSchedule').addClass("hidden");
-      $('.invitedSchedule').removeClass("hidden");
-    })
-    $('.navbar-toggler').on('click', function(event) {
-		event.preventDefault();
-		$(this).closest('.navbar-minimal').toggleClass('open');
-	})
-  $('.hoverable-css').on('click', function(e) {
-		e.preventDefault();
-		console.log($(this)[0].value);
-    $.ajax({
-      url: '/delete/'+$(this)[0].value,
-      type: 'POST',
-      success: function(result) {
-        alert("This schedule is deleted.")
-      }
-    });
-	})
-});
+<script src="public/js/dashboard.js">
 </script>
