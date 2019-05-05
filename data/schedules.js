@@ -175,7 +175,7 @@ async function removeSchedule(scheduleId){
     // remove all note record
     await noteData.removeAllNoteBySchedule(scheduleId);
     
-    return deletedOne;
+    return deletedOne.value;
 }
 
 
