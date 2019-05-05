@@ -101,9 +101,7 @@ router.post("/:scheduleId", async (req, res) => {
 
 router.post('/delete/:scheduleId', async (req, res) => {
   try {
-    console.log("delete function start!!!");
     const schedule = await scheduleData.removeSchedule(req.params.scheduleId);
-    console.log("delete function finish!!!");
     const usersList = schedule.users;
     let emails = [];
     for (let i = 0; i < usersList.length; i++) {
