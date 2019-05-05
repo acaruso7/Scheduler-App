@@ -65,6 +65,11 @@ section {
     width:70%;
     margin: auto;
 }
+
+table td:nth-child(1){  /* this will go to the 2nd column of a table directly */
+    background:white;
+    font-weight:bold;
+}
   
     ul {
         margin:0;
