@@ -7,6 +7,7 @@ const notesData = data.notes;
 const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
 const deployUrl = require('../config/deploy').url;
+const Handlebars = require('handlebars');
 
 router.get("/", async (req, res) => {
   try {
@@ -77,6 +78,17 @@ router.get("/:scheduleId", async (req, res) => {
         }
         row[i]=col;
     }
+
+    //handlebars helpers for conditional formatting on grid
+    Handlebars.registerHelper('ifeq', function (a, b, options) {
+      if (a == b) { return options.fn(this); }
+      return options.inverse(this);
+    });
+    Handlebars.registerHelper('ifnoteq', function (a, b, options) {
+      if (a != b) { return options.fn(this); }
+      return options.inverse(this);
+    });
+
     res.render('display',{ dates:dates, row:row, scheduleId: req.params.scheduleId, notes: notes,schedule:schedule });
   } catch(e) {
     console.log(e)
