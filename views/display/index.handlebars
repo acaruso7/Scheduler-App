@@ -79,25 +79,3 @@
             {{/each}}
         </section>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-{{!-- <script>
-    var tableData = document.querySelectorAll("#td");
-    function isNotAvailable(tableData) {
-        for (i=0; i<tableData.length; i++) {
-            if(tableData[i].textContent == ' Not Available') {
-                return true
-            } else if (/\d/.test(tableData[i].textContent)) {
-                return false
-            }
-        }
-    }
-</script> --}}
-<script>
-    function isNotAvailable(td) {
-        if(td == ' Not Available') {
-            return true
-        } else if (/\d/.test(td)) {
-            return false
-        }
-    }
-</script>
