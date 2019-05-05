@@ -25,7 +25,7 @@
           <div class="col-md-3">
               <div class="contact-info">
                   <h2>{{title}}</h2>
-                  <h4>{{description}}</h4>
+                  <p>{{description}}</p>
               </div>
           </div>
           <div class="col-md-9">
@@ -37,8 +37,8 @@
                     <label class="control-label col-sm-12" for="fname">{{this}}</label>
                     <div id={{@index}} class="col-sm-10">          
                           <fieldset id='availability'>
-                              <input type="radio" name={{this}} value="yes" required> Yes<br>
-                              <input type="radio" name={{this}} value="no" required> No<br>
+                              <input type="radio" name={{this}} value="yes" required> Available<br>
+                              <input type="radio" name={{this}} value="no" required> Not Available<br>
                           </fieldset>
                     </div>
                   </div>
