@@ -20,16 +20,14 @@ router.post('/', async(req, res) => {
     } catch (e) {
         // *** client side sent error
         // res.write('<script> alert(error) </script?');
-        res.status(404).render('error/error',{error: "email or password is wrong"});
-        // res.status(404).json({error: "email or password is wrong"});
+        res.status(404).render('error/error',{error: "Email or password is incorrect"});
         return;
     }
     
     if(!isRightPassword){
         // *** client side sent error
         //redirct to login and alert 
-        res.status(404).render('error/error',{error: "email or password is wrong"});
-        // res.status(404).json({error: "email or password is wrong"});
+        res.status(404).render('error/error',{error: "Email or password is incorrect"});
         return;
     }
 
