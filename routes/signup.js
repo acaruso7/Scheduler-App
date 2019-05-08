@@ -21,12 +21,10 @@ router.post('/', async(req, res) => {
 
     // compare two password is same or not
 
-    // *** this part could finish in front end
     if(req.body.password != req.body.confirmPassword){
         res.render('log/signup',{notSameError: "same"});
         return;
     }
-    // ******
 
     // create a new user
     try {
