@@ -21,6 +21,16 @@ Start the server:
  npm start
 ```
 
+## Login Information
+The following accounts are written to the database in the seed script:
+* acaruso@stevens.edu
+* johndoe@gmail.com
+* shujaatbakhsh@gmail.com
+* haolinyang95@gmail.com
+* yangyangliu@gmail.com
+* jiaweiwang@gmail.com
+The password for each of these accounts is 123. Use any of them to test the application.
+
 ## Group Members
 * Yang, Haolin
 * Bakhsh, Shujaat
