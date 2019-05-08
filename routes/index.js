@@ -3,7 +3,6 @@ const inviteFormRoute = require("./inviteForm");
 const loginRoute = require("./login");
 const signupRoute = require("./signup");
 const createScheduleRoute = require("./createSchedule");
-const confirmRoute = require('./confirm')
 const path = require("path");
 
 const constructorMethod = app => {
@@ -20,7 +19,6 @@ const constructorMethod = app => {
   app.use("/dashboard", dashboardRoute);
   app.use("/inviteForm", inviteFormRoute);
   app.use("/createSchedule", createScheduleRoute);
-  app.use('/confirm', confirmRoute);
   app.get('/logout', async (req, res) =>{
     req.session.destroy();
     res.clearCookie("AuthCookie");
