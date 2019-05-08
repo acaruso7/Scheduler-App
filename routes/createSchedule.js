@@ -2,13 +2,16 @@ const path = require("path");
 const express = require("express");
 const router = express.Router();
 const scheduleData = require('../data/schedules')
+const userData = require("../data/users")
 const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
 const deployUrl = require('../config/deploy').url;
 // const xss = require("xss");
 
 router.get("/", async (req, res) => {
-    res.sendFile(path.resolve("static/createSchedule.html"));
+    let user = await userData.get(req.session.userId)
+    let email = user.email
+    res.render('createSchedule', {email: email})
 });
 
 router.post("/", async (req, res) => {  
