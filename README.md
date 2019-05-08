@@ -29,7 +29,8 @@ The following accounts are written to the database in the seed script:
 * haolinyang95@gmail.com
 * yangyangliu@gmail.com
 * jiaweiwang@gmail.com
-The password for each of these accounts is 123. Use any of them to test the application.
+
+The password for each of these accounts is `123`. Use any of them to test the application.
 
 ## Group Members
 * Yang, Haolin
