@@ -1,48 +1,40 @@
-<head>
-    <meta charset="utf-8">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <title>Create Schedule</title>
-</head>
-
 <form action="/signup" method="POST" id="signoutForm">
-            <div style='padding-top:70px'>
-                    <div class="card card-container">
-                        <div style="font-size: xx-large;color:rgb(27, 14, 211);font-family: 'Times New Roman', Times, serif;text-align: center"> <img src="../public/img/calendar.jpg" style="width: 100px;height: 100px;"></div>
-                        <p id="profile-name" class="profile-name-card"></p>
-                        <form class="form-signin">
-                            <span id="reauth-email" class="reauth-email"></span>
-                            <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
-                            <div><p></p></div>
-                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-                            <div><p></p></div>
-                            <input type="password" id="inputconfirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required>
-                            <div><p></p></div>  
-                            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Full Name" required>
-                            <div><p></p></div>
-                            <div>
-                                {{#if nameError}}
-                                <p class="errorMessage">Username Already Exists</p>
-                                {{/if}}
-                                {{#if notSameError}}
-                                <p class="errorMessage">Passwords must match</p>
-                                {{/if}}
-                            </div>
-                            <div><p></p></div>
-                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Create an Account</button>
-                        </form>
-                        <div>
-                            <a href="/login" class="back-to-login" >
-                                Already have an account?
-                            </a>
-                        </div>
-                    </div>
+    <div style='padding-top:70px'>
+        <div class="card card-container">
+            <div style="font-size: xx-large;color:rgb(27, 14, 211);font-family: 'Times New Roman', Times, serif;text-align: center"> <img src="../public/img/calendar.jpg" style="width: 100px;height: 100px;"></div>
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
+                <div><p></p></div>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <div><p></p></div>
+                <input type="password" id="inputconfirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+                <div><p></p></div>  
+                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Full Name" required>
+                <div><p></p></div>
+                <div>
+                    {{#if nameError}}
+                    <p class="errorMessage">Username Already Exists</p>
+                    {{/if}}
+                    {{#if notSameError}}
+                    <p class="errorMessage">Passwords must match</p>
+                    {{/if}}
                 </div>
-        </form>
+                <div><p></p></div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Create an Account</button>
+            </form>
+            <div>
+                <a href="/login" class="back-to-login" >
+                    Already have an account?
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
         
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link rel="stylesheet" href="/public/css/main.css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="/public/css/main.css">
         
