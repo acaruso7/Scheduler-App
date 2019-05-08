@@ -84,11 +84,7 @@ async function addUserToSchedule(scheduleId, userId){
 async function addDateToSchedule(scheduleId, date){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
-    // date is a object. The format is YYYY/mm/dd
-    // if(!date) throw 'You must have a date!';
-    // if(typeof date !== "string") throw `'date' must be a string. The inputted value is of type ${typeof date}`
-    // need a check date format.
-
+    
     const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
     const schedulesCollection = await schedules();
     const updatedInfo = await schedulesCollection.updateOne({_id: scheduleObjectId}, {$addToSet: {dates: date}});
@@ -106,8 +102,6 @@ async function addResponseToSchedule(scheduleId, userId){
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
     if(!userId) throw "You must have a userId!";
     if(typeof userId !== "string") throw `'userId' must be a string. The inputted value is of type ${typeof userId}`
-    // check userId should exsit
-
 
     const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
     const schedulesCollection = await schedules();
@@ -131,11 +125,6 @@ async function addAvailabilityToResponse(scheduleId, userId, date, times){
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
     if(!userId) throw "You must have a userId!";
     if(typeof userId !== "string") throw `'userId' must be a string. The inputted value is of type ${typeof userId}`
-    // Check the date should in schedule.dates
-    // if(!date) throw 'You must have a date!';
-    // if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
-    // need a check date format.
-    // if(typeof time !== "object") throw `'time' must be a array. The inputted value is of type ${typeof time}`
 
     const scheduleObjectId = ObjectId.createFromHexString(scheduleId);
     const schedulesCollection = await schedules();
