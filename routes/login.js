@@ -2,12 +2,10 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const data = require('../data');
-// const path = require("path");
 const userData = data.users;
 
 router.get('/', async(req, res) => {
     res.render('log/login',{});
-    // res.sendFile(path.resolve("static/login.html"));
 });
 
 router.post('/', async(req, res) => {
@@ -19,15 +17,11 @@ router.post('/', async(req, res) => {
         userId = await userData.getUserIdByEmail(req.body.username);
         isRightPassword = await bcrypt.compare(req.body.password, (await userData.get(userId)).password);
     } catch (e) {
-        // *** client side sent error
-        // res.write('<script> alert(error) </script?');
         res.status(404).render('log/login',{error: "Email or password is incorrect"});
         return;
     }
     
     if(!isRightPassword){
-        // *** client side sent error
-        //redirct to login and alert 
         res.status(404).render('log/login',{error: "Email or password is incorrect"});
         return;
     }
