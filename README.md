@@ -1,8 +1,11 @@
 
 # Scheduler-App
-A node.js scheduler app to find mutual meeting times among group members
+A node.js scheduler app to find mutual meeting times among group members.
 
-## Quick Start
+## Link to Version Deployed on Google Cloud
+https://quixotic-hash-238700.appspot.com 
+
+## Quick Start (Run Locally)
 Install dependencies
 ```bash
  npm install
@@ -59,6 +62,9 @@ The general idea for this app is to provide functionality to users to schedule m
 	* ~~This feature would allow users to create open events for anyone interested (for example, planning a sports event)~~ NOT IMPLEMENTED
 * ~~Update selections within a certain window~~ NOT IMPLEMENTED
 	* ~~For example, allow a user to change his or her selections within a certain amount of time of the original invite~~ NOT IMPLEMENTED
+
+### Side Note
+* In the local version of this application, the dates selected in the createSchedule form are offset by one day when displayed elsewhere in the UI, due to a timezone conversion issue in MongoDB. This is solved in the version deployed on Google Cloud, since you can set a default timezone with Mongo Atlas. Please test using the deployed version
 
 ## Database Schema
 ### Users
