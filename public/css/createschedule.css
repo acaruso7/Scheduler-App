@@ -1,6 +1,10 @@
 body{
     background:#405180;
 }
+p {
+    word-wrap: break-word;
+}
+
 .contact{
     padding: 4%;
     height: 400px;
@@ -52,11 +56,11 @@ body{
     padding-top: 45px;
 }
 
-/* .row_invite {
+#invite_row {
     padding-top: 45px;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
-} */
+}
 
 select { width: 100px; text-align:center; }
 select .lt { text-align:center; }

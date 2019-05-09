@@ -4,6 +4,11 @@ body, html {
     background:#405180;
 }
 
+p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 section {
     padding-top: 4rem;
     padding-bottom: 5rem;
@@ -64,11 +69,41 @@ section {
 .comment-container{
     width:70%;
     margin: auto;
+    padding-bottom: 45px;
+}
+
+#header-background {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Hong_Kong_at_night.jpg/1400px-Hong_Kong_at_night.jpg); 
+    background-size: cover;
+}
+
+#header-background h1 {
+    color:honeydew;
+}
+
+#header-background h5 {
+    color:honeydew;
 }
 
 table td:nth-child(1){  /* this will go to the 2nd column of a table directly */
     background:white;
     font-weight:bold;
+}
+
+#grid {
+    background:#fff;
+    width:70%;
+    margin: auto; 
+    table-layout: fixed;
+}
+
+tr {
+    word-wrap: break-word;
+}
+
+.table-cell {
+    text-align:center; 
+    vertical-align:middle
 }
   
     ul {

@@ -1,56 +1,52 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ScheduleMe</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../public/css/logout.css" />
-    </head>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ScheduleMe</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="../public/css/logout.css" />
+  </head>
     <body>
       <header>
-          <div class="overlay">
-              <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                  <source src="./public/img/city_dusk_landing_page.mp4" type="video/mp4">
-              </video>
+        <div class="overlay">
+          <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="./public/img/city_dusk_landing_page.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="container h-100">
+          <div class="d-flex text-center h-100">
+            <div class="my-auto w-100 text-white">
+              <h1 class="display-3">Welcome to ScheduleMe</h1>
+              <h2>Schedule Meetings with Your Teams!</h2>
+            </div>
           </div>
-          <div class="container h-100">
-              <div class="d-flex text-center h-100">
-                  <div class="my-auto w-100 text-white">
-                      <h1 class="display-3">Welcome to ScheduleMe</h1>
-                      <h2>Schedule Meetings with Your Teams!</h2>
-                  </div>
-              </div>
-          </div>
+        </div>
       </header>
       <main>
-            <div id="wrapper" class="animate">
-                    <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-                      <a class="navbar-brand" href="#">ScheduleMe</a>
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarText">
-                        
-                        <ul class="navbar-nav ml-md-auto d-md-flex">
-                          <li class="nav-item">
-                            <a class="nav-link" href="/signup"><i class="fas fa-key"></i> Create an Account</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="/login"><i class="fas fa-key"></i> Sign In</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </nav>
+        <div id="wrapper" class="animate">
+          <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ScheduleMe</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ml-md-auto d-md-flex">
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup"><i class="fas fa-key"></i> Create an Account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login"><i class="fas fa-key"></i> Sign In</a>
+                </li>
+              </ul>
             </div>
+          </nav>
+        </div>
       </main>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     </body>
 </html>
