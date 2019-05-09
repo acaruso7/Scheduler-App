@@ -15,6 +15,29 @@
     padding: 40px 40px;
 }
 
+.container {
+    padding-top:70px;
+}
+
+.login-card {
+    font-size: xx-large;
+    color:rgb(27, 14, 211);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.calendar-icon {
+    width: 100px;
+    height: 100px;
+    display:block;
+    margin:auto;
+}
+
+#login-h4 {
+    text-align:center; 
+    font-weight:bold;
+}
+
 .createScheduleForm {
     max-width: 700px;
     padding: 40px 40px;
