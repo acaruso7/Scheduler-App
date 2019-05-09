@@ -21,7 +21,7 @@
 
 <div class="jumbotron text-center" id='header-background'>
     <h1>{{schedule.title}}</h1>
-    <h5>{{schedule.description}}</h4>
+    <h5>{{schedule.description}}</h5>
 </div>
 
 <table id="grid" class="table table-bordered table-striped">
@@ -40,10 +40,10 @@
         <tr>
             {{#each this}}
                 {{#ifeq this "Not Available"}}
-                    <td id='td' scope="row" class='table-cell' bgcolor="#ff8282"> {{this}}</td>
+                    <td class='red-table-cell'> {{this}}</td>
                 {{/ifeq}}
                 {{#ifnoteq this "Not Available"}}
-                    <td id='td' scope="row" class='table-cell' bgcolor="92CA91"> {{this}}</td>
+                    <td class='green-table-cell'> {{this}}</td>
                 {{/ifnoteq}}
             {{/each}}
         </tr>
@@ -52,9 +52,9 @@
 </table>
 
 <div id = "comment-container" class="comment-container">
-    <section class="comments">
+    <div class="comments">
         <form action="/dashboard/{{scheduleId}}" method="POST" id='commentForm'>
-        <article class="comment">      
+        <div class="comment">      
             <a class="comment-img" href="#non">
                 <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
             </a>                   
@@ -64,10 +64,10 @@
                 </div>
                 <button type="submit"> Submit </button>
             </div>
-        </article>
+        </div>
         </form>    
         {{#each notes}}
-            <article class="comment">
+            <div class="comment">
                 <a class="comment-img" href="#non">
                     <img src="http://lorempixum.com/50/50/people/1" alt="" width="50" height="50" />
                 </a>             
@@ -77,7 +77,7 @@
                     </div>
                     <p class="attribution">by {{this.user}}</p>
                 </div>
-            </article>
+            </div>
         {{/each}}
-    </section>
+    </div>
 </div>
