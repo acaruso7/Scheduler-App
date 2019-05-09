@@ -4,20 +4,18 @@
             <div class='login-card'> <img src="../public/img/calendar.jpg" alt="calendar icon" class='calendar-icon'></div>
                 <h4 id='login-h4'>Login to Start Scheduling </h4>
                 <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin">
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
-                    <div><p></p></div>
-                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-                    <div><p></p></div>
-                    <div>
-                        {{#if error}}
-                        <p class="errorMessage">Email or password is incorrect</p>
-                        {{/if}}
-                    </div>
-                    <div><p></p></div>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
-                </form>
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
+                <div><p></p></div>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <div><p></p></div>
+                <div>
+                    {{#if error}}
+                    <p class="errorMessage">Email or password is incorrect</p>
+                    {{/if}}
+                </div>
+                <div><p></p></div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
             <div>
                 <a href="/signup" class="sign-up" >Create an Account</a>
             </div>
@@ -27,5 +25,4 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="/public/css/main.css">

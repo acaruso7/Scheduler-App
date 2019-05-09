@@ -101,9 +101,16 @@ tr {
     word-wrap: break-word;
 }
 
-.table-cell {
+.red-table-cell {
     text-align:center; 
-    vertical-align:middle
+    vertical-align:middle;
+    background-color: #ff8282;
+}
+
+.green-table-cell {
+    text-align:center; 
+    vertical-align:middle;
+    background-color: #92CA91;
 }
   
     ul {
@@ -172,7 +179,7 @@ tr {
     
  
     
-    section {
+    /* .section {
         background: #fff;
         padding-right: 85px;
         padding-top: 30px;
@@ -182,7 +189,7 @@ tr {
         margin-top: 20px;
         border-radius: 5px;
         border: 1px solid #666;
-    }
+    } */
     
     .comment {
         overflow: hidden;
@@ -221,6 +228,18 @@ tr {
     }
     
     /* Decoration */
+
+    .comments {
+        background: #fff;
+        padding-right: 85px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        height: 100%;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid #666;
+    }
     
     .comments, .comment { position: relative }
     
