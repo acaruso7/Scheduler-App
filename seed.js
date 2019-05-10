@@ -210,6 +210,8 @@ async function main() {
     await notes.createNote(schedule6Id, user6Id, user6['fullName'], comment13);
     
     console.log('Done seeding database');
+    //close the connection to database
+    db.serverConfig.close()
 }
 
 main();
