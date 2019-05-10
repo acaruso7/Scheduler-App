@@ -31,37 +31,36 @@
         </div>
         <div class="col-md-9">
           <div id="datesContainer" class="contact-form">
-            <h2 class='inviteForm-h2'>  Select the dates and times you are available for this meeting</h2>
+            <h2 class='inviteForm-h2'>Select the dates and times you are available for this meeting</h2>
             {{#each dates}}
               <div>
                 <div class="form-group">
                   <label class="control-label col-sm-12" for={{this}}>{{this}}</label>
-                  <div id={{@index}} class="col-sm-10">         
+                  <div class="col-sm-10">         
                     <fieldset>
                       <input id={{this}} type="radio" name={{this}} value="yes" required> Available<br>
-                      <input id={{this}} type="radio" name={{this}} value="no" required> Not Available<br>
+                      <input type="radio" name={{this}} value="no" required> Not Available<br>
                     </fieldset>
                   </div>
                 </div>
                 <div class="form-group" style="display:none"> 
-                  <div class="col-sm-10">   
-                    <label for='time' hidden></label>       
+                  <div class="col-sm-10">          
                     <fieldset>
-                      <input id='time' type="checkbox" value="7 AM" name={{this}}> 7 AM   
-                      <input id='time' type="checkbox" value="8 AM" name={{this}}> 8 AM
-                      <input id='time' type="checkbox" value="9 AM" name={{this}}> 9 AM
-                      <input id='time' type="checkbox" value="10 AM" name={{this}}> 10 AM
-                      <input id='time' type="checkbox" value="11 AM" name={{this}}> 11 AM
-                      <input id='time' type="checkbox" value="12 PM" name={{this}}> 12 PM
-                      <input id='time' type="checkbox" value="1 PM" name={{this}}> 1 PM <br>
-                      <input id='time' type="checkbox" value="2 PM" name={{this}}> 2 PM 
-                      <input id='time' type="checkbox" value="3 PM" name={{this}}> 3 PM 
-                      <input id='time' type="checkbox" value="4 PM" name={{this}}> 4 PM
-                      <input id='time' type="checkbox" value="5 PM" name={{this}}> 5 PM
-                      <input id='time' type="checkbox" value="6 PM" name={{this}}> 6 PM
-                      <input id='time' type="checkbox" value="7 PM" name={{this}}> 7 PM
-                      <input id='time' type="checkbox" value="8 PM" name={{this}}> 8 PM
-                      <input id='time' type="checkbox" value="9 PM" name={{this}}> 9 PM
+                      <input type="checkbox" value="7 AM" name={{this}}> 7 AM   
+                      <input type="checkbox" value="8 AM" name={{this}}> 8 AM
+                      <input type="checkbox" value="9 AM" name={{this}}> 9 AM
+                      <input type="checkbox" value="10 AM" name={{this}}> 10 AM
+                      <input type="checkbox" value="11 AM" name={{this}}> 11 AM
+                      <input type="checkbox" value="12 PM" name={{this}}> 12 PM
+                      <input type="checkbox" value="1 PM" name={{this}}> 1 PM <br>
+                      <input type="checkbox" value="2 PM" name={{this}}> 2 PM 
+                      <input type="checkbox" value="3 PM" name={{this}}> 3 PM 
+                      <input type="checkbox" value="4 PM" name={{this}}> 4 PM
+                      <input type="checkbox" value="5 PM" name={{this}}> 5 PM
+                      <input type="checkbox" value="6 PM" name={{this}}> 6 PM
+                      <input type="checkbox" value="7 PM" name={{this}}> 7 PM
+                      <input type="checkbox" value="8 PM" name={{this}}> 8 PM
+                      <input type="checkbox" value="9 PM" name={{this}}> 9 PM
                     </fieldset>
                   </div>
                 </div>
