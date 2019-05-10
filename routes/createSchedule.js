@@ -6,7 +6,7 @@ const userData = require("../data/users")
 const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
 const deployUrl = require('../config/deploy').url;
-// const xss = require("xss");
+const xss = require("xss");
 
 router.get("/", async (req, res) => {
     let user = await userData.get(req.session.userId)
@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {  
-    let title = req.body.title;
-    let description = req.body.description;
+    let title = xss(req.body.title);
+    let description = xss(req.body.description);
     let emails = req.body.emails;
     let dates = req.body.dates;
     if(typeof dates === "string")
