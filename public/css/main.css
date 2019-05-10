@@ -10,6 +10,11 @@ p {
     overflow-wrap: break-word;
 }
 
+.display-h2 {
+    font-size:1.2rem;
+    color:honeydew;
+}
+
 section {
     padding-top: 4rem;
     padding-bottom: 5rem;
@@ -186,6 +191,10 @@ tr {
         -webkit-text-fill-color: transparent;
     }
 
+    .article-description {
+        color:#0072ee;
+    }
+
     
     .comment {
         overflow: hidden;
@@ -286,7 +295,7 @@ tr {
     }
 
     .hoverable-css{    
-        background-color: #e6403d;
+        background-color: #e32c27;
         border-radius: 3px;
         font-size: 14px;
         font-weight: bold;
@@ -373,9 +382,10 @@ tr {
     margin:auto;
 }
 
-#login-h4 {
+#login-h1 {
     text-align:center; 
     font-weight:bold;
+    font-size: 1.5rem;
 }
 
 .createScheduleForm {
@@ -391,7 +401,9 @@ tr {
     user-select: none;
     cursor: default;
 }
-
+.btn.btn-lg.btn-primary.btn-block.btn-signin {
+    background-color: #477e92;
+}
 /*
  * Card component
  */
@@ -509,12 +521,12 @@ tr {
 }
 
 .sign-up {
-    color: rgb(104, 145, 162);
+    color: #3d798e;
     float:right;
 }
 
 .back-to-login{
-    color: rgb(104, 145, 162);
+    color: #3d798e;
     float:right;
 }
 

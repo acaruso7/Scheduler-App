@@ -21,7 +21,7 @@
 
 <div class="jumbotron text-center" id='header-background'>
     <h1>{{schedule.title}}</h1>
-    <h5>{{schedule.description}}</h5>
+    <h2 class='display-h2'>{{schedule.description}}</h2>
 </div>
 
 <table id="grid" class="table table-bordered table-striped">
@@ -60,7 +60,8 @@
             </div>                   
             <div class="comment-body">
                 <div class="text">
-                <textarea class="form-control" name='comment' rows="2" id="comment" placeholder='Enter your comments here' required></textarea>
+                <label for='commentInput'></label>
+                <textarea id='commentInput' class="form-control" name='comment' rows="2" id="comment" placeholder='Enter your comments here' required></textarea>
                 </div>
                 <button type="submit"> Submit </button>
             </div>
