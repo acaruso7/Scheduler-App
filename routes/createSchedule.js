@@ -45,8 +45,10 @@ router.post("/", async (req, res) => {
                 emailConfig: emailConfig.emailConfig,
                 to: emails[i],
                 subject: 'ScheduleMe Invitation to Edit',
-                content: `You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: \n \
-                ${deployUrl}/email/${schedule._id}`,
+                content: `You've been invited to edit a ScheduleMe schedule. Please enter your availability at the following link: 
+                ${deployUrl}/email/${schedule._id} <br> <br>
+                The schedule title is: ${schedule.title} <br>
+                The schedule description is: ${schedule.description}`,
             });
         }   
     } catch(e) {

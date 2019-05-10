@@ -127,7 +127,7 @@ router.post('/delete/:scheduleId', async (req, res) => {
           emailConfig: emailConfig.emailConfig,
           to: emails[i],
           subject: 'ScheduleMe Meeting Deleted',
-          content: `The ScheduleMe meeting you were invited to edit has been deleted by the creator \n \
+          content: `The ScheduleMe meeting you were invited to edit has been deleted by the creator. <br>
           The schedule title is: ${schedule.title}`,
       });
   }
