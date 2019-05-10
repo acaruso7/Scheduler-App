@@ -44,19 +44,19 @@ section {
 }
 
 .createdSchedule{
-    width:50%;
+    width:52%;
     float:left;
     padding: 30px;
     margin-top: 140px;
-    margin-left: 20%;
+    margin-left: 24%;
 }
 
 .invitedSchedule{
-    width:50%;
+    width:52%;
     float:left;
     padding: 30px;
     margin-top: 140px;
-    margin-left: 20%;
+    margin-left: 24%;
 }
 .hidden{
     display: none;

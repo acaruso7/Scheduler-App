@@ -18,13 +18,36 @@
 
 <div class="container">
 	<ul>
+      <li id="scheduleInvited"><a href="#"><span title="Schedules You've Been Invited To">Schedules You've Been Invited To</span></a></li>
 	    <li id="scheduleCreate"><a href="#"><span title="Schedules You've Created">Schedules You've Created</span></a></li>
-	    <li id="scheduleInvited"><a href="#"><span title="Schedules You've Been Invited To">Schedules You've Been Invited To</span></a></li>
       <li ><a href="/createSchedule"><span title="Create a New Schedule">Create a New Schedule</span></a></li>
 	</ul>
 </div>
+<div class="invitedSchedule">
+	<div>
+    {{#each invited_schedules}}
+      <div class="row mb-2 wrap">
+        <div class="col-md-12">
+          <a href="/dashboard/{{this._id}}" >
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
+                  <br>
+                </div>
+                <div class="col-xs-16 col-sm-16 col-md-16">
+                  <h2 class="article-title">{{this.title}}</h2>
+                  <p>{{this.description}}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
 
-<div class="createdSchedule">
+<div class="createdSchedule hidden">
   <div >
     {{#each created_schedules}}
       <div class="row mb-2 wrap">
@@ -53,29 +76,7 @@
   </div>
 </div>
 
-<div class="invitedSchedule">
-	<div>
-    {{#each invited_schedules}}
-      <div class="row mb-2 wrap">
-        <div class="col-md-12">
-          <a href="/dashboard/{{this._id}}" >
-            <div class="card-body">
-              <div class="row">
-                <div class="col-xs-1 col-sm-2 col-md-1 mr-3">
-                  <br>
-                </div>
-                <div class="col-xs-16 col-sm-16 col-md-16">
-                  <h2 class="article-title">{{this.title}}</h2>
-                  <p>{{this.description}}</p>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-</div>
+
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
