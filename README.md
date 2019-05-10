@@ -77,7 +77,7 @@ The general idea for this app is to provide functionality to users to schedule m
 ### Side Notes
 * In the local version of this application, the dates selected in the createSchedule form are offset by one day when displayed elsewhere in the UI, due to a timezone conversion issue in MongoDB. This is solved in the version deployed on Google Cloud, since you can set a default timezone with Mongo Atlas. Please test using the deployed version
 * There are a few instances in the codebase where it is not possible to pass both the W3 HTML validator tests, as well as Tota11y accessability tests:
-    * We have a landing page with a looping video background, and Tota11y considers the <video> tag to be an <input>, so it requires a label with a matching id. But the W3 validator doesn't consider the <video> tag to be an <input>, so it tells us that our label doesn't have an associated <input>.
+    * We have a landing page with a looping video background, and Tota11y considers the video tag to be an input, so it requires a label with a matching id. But the W3 validator doesn't consider the video tag to be an input, so it tells us that our label doesn't have an associated input.
     * The same issue occurs on the Non-Authenticated error page, and the logout page
 
 ## Database Schema
