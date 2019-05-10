@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const data = require('../data');
 const userData = data.users;
+const xss = require('xss')
 
 router.get('/', async(req, res) => {
     res.render('log/login',{});
@@ -15,7 +16,7 @@ router.post('/', async(req, res) => {
     // Check the password is right or not. 
     try {
         userId = await userData.getUserIdByEmail(req.body.username);
-        isRightPassword = await bcrypt.compare(req.body.password, (await userData.get(userId)).password);
+        isRightPassword = await bcrypt.compare(xss(req.body.password), (await userData.get(userId)).password);
     } catch (e) {
         res.status(404).render('log/login',{error: "Email or password is incorrect"});
         return;

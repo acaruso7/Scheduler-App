@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const data = require('../data');
 const userData = data.users;
 const saltRounds = 3;
-
+const xss = require("xss")
 // *** get mey be deleted for the future
 router.get('/', async(req, res) => {
     res.render('log/signup',{});
@@ -21,15 +21,15 @@ router.post('/', async(req, res) => {
 
     // compare two password is same or not
 
-    if(req.body.password != req.body.confirmPassword){
+    if(xss(req.body.password) != xss(req.body.confirmPassword)){
         res.render('log/signup',{notSameError: "same"});
         return;
     }
 
     // create a new user
     try {
-        let hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-        const newUser = await userData.create(req.body.fullName, req.body.username, hashedPassword);
+        let hashedPassword = await bcrypt.hash(xss(req.body.password), saltRounds);
+        const newUser = await userData.create(xss(req.body.fullName), req.body.username, hashedPassword);
         req.session.isAuthenticated = true;
         req.session.userId = newUser._id.toString();
         if(req.session.fromEmail){
