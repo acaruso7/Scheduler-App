@@ -23,31 +23,8 @@
       <li ><a href="/createSchedule"><span title="Create a New Schedule">Create a New Schedule</span></a></li>
 	</ul>
 </div>
-<div class="invitedSchedule">
-	<div>
-    {{#each invited_schedules}}
-      <div class="row mb-2 wrap">
-        <div class="col-md-12">
-          <a href="/dashboard/{{this._id}}" >
-            <div class="card-body">
-              <div class="row">
-                <div class="col-xs-1 col-sm-2 col-md-1 mr-3 cardlocater">
-                  <br>
-                </div>
-                <div class="col-xs-16 col-sm-16 col-md-16 cardlocater">
-                  <h2 class="article-title">{{this.title}}</h2>
-                  <p>{{this.description}}</p>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-</div>
 
-<div class="createdSchedule hidden">
+<div class="createdSchedule">
   <div >
     {{#each created_schedules}}
       <div class="row mb-2 wrap">
@@ -75,6 +52,32 @@
     {{/each}}
   </div>
 </div>
+
+<div class="invitedSchedule hidden">
+	<div>
+    {{#each invited_schedules}}
+      <div class="row mb-2 wrap">
+        <div class="col-md-12">
+          <a href="/dashboard/{{this._id}}" >
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xs-1 col-sm-2 col-md-1 mr-3 cardlocater">
+                  <br>
+                </div>
+                <div class="col-xs-16 col-sm-16 col-md-16 cardlocater">
+                  <h2 class="article-title">{{this.title}}</h2>
+                  <p>{{this.description}}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+
 
 
 
