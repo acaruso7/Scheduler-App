@@ -351,7 +351,10 @@ tr {
 }
 
 .container {
+    width:90%;
     padding-top:70px;
+    margin-left:5% auto;
+    margin-right:5% auto;
 }
 
 .login-card {
