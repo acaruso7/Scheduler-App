@@ -13,6 +13,7 @@ p {
 .display-h2 {
     font-size:1.2rem;
     color:honeydew;
+    word-wrap: break-word;
 }
 
 .create-h1 {
@@ -21,6 +22,7 @@ p {
 
 .inviteForm-h1 {
     font-size: 1.5rem;
+    word-wrap: break-word;
 }
 
 .inviteForm-h2 {
@@ -198,6 +200,7 @@ tr {
         font-family: sans-serif;
         color: white;
         background: black;
+        word-wrap: break-word;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
