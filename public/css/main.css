@@ -15,6 +15,18 @@ p {
     color:honeydew;
 }
 
+.create-h1 {
+    font-size: 1.5rem;
+}
+
+.inviteForm-h1 {
+    font-size: 1.5rem;
+}
+
+.inviteForm-h2 {
+    font-size: 1.5rem;
+}
+
 section {
     padding-top: 4rem;
     padding-bottom: 5rem;
@@ -171,7 +183,6 @@ tr {
         top:0;
         left:0;
         background:#fff;
-        color:#262626;
         padding:15px 20px;
         transform-style:preserve-3d;
         transition:.3s;
@@ -591,7 +602,7 @@ header {
   }
 
   ul li a {
-    color:#262626;
+    /* color:#262626; */
     font-size:16px;
     font-familY:arial;
     text-transform: uppercase;
