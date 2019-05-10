@@ -637,10 +637,10 @@ p {
 .description-input {
     width: 100%;
 }
-
+/* 
 .row {
-    padding-top: 45px;
-}
+    margin-top: 0px;
+} */
 
 #invite_row {
     padding-top: 45px;
