@@ -8,6 +8,7 @@ const emailConfig = require('../config/email')
 const emailer = require('node-email-sender');
 const deployUrl = require('../config/deploy').url;
 const Handlebars = require('handlebars');
+const xss = require("xss");
 
 router.get("/", async (req, res) => {
   try {
@@ -101,7 +102,7 @@ router.post("/:scheduleId", async (req, res) => {
   try {
     const user = await userData.get(req.session.userId)
     const userName = user['fullName']
-    const note = await notesData.createNote(req.params.scheduleId, req.session.userId, userName, req.body.comment)
+    const note = await notesData.createNote(req.params.scheduleId, req.session.userId, userName, xss(req.body.comment))
     res.redirect(`/dashboard/${req.params.scheduleId}`)
   } catch(e) {
     console.log(e)
