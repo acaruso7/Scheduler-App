@@ -600,6 +600,8 @@ p {
 .contact{
     padding: 4%;
     height: 400px;
+    margin: auto;
+    width: 70%;
 }
 .col-md-3{
     background: #ff9b00;
@@ -647,9 +649,12 @@ p {
 .rowDetail{
     display:flex;
     flex-wrap:wrap;
+    width:100%;
+    margin:auto 0;
     margin-right:-15px;
     margin-left:-15px;
-    margin-top:5%;
+    margin-top:3%;
+    margin-bottom: 3%;
 }
 
 #invite_row {
