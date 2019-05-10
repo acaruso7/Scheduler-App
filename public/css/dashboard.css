@@ -47,16 +47,16 @@ section {
     width:50%;
     float:left;
     padding: 30px;
-    margin-top: 110px;
-    margin-left: 350px;
+    margin-top: 140px;
+    margin-left: 20%;
 }
 
 .invitedSchedule{
     width:50%;
     float:left;
     padding: 30px;
-    margin-top: 110px;
-    margin-left: 350px;
+    margin-top: 140px;
+    margin-left: 20%;
 }
 .hidden{
     display: none;
