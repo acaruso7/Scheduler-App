@@ -1,5 +1,4 @@
 $(function () {  
-    $('.createdSchedule').addClass("hidden");
     $('#scheduleCreate').on('click',function(event){
       event.preventDefault();
       $('.invitedSchedule').addClass("hidden");
