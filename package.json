@@ -1,10 +1,10 @@
 {
-  "name": "survey-app",
+  "name": "Scheduler-App",
   "version": "1.0.0",
-  "description": "A simple web app to display random settings to users, and take responses",
+  "description": "A node.js scheduler app to find mutual meeting times among group members",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "seed": "node seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
