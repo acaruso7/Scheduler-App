@@ -13,7 +13,7 @@ Install dependencies
 
 Initalize database
 ```bash
- node seed.js
+ npm run seed
 ```
 
 Start the server:
