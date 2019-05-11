@@ -30,7 +30,7 @@ The following accounts are written to the database in the seed script:
 * yangyangliu@gmail.com
 * jiaweiwang@gmail.com
 
-The password for each of these accounts is `123`. Use any of them to test the application.
+The password for each of these accounts is `123`. Use any of them to login and view the seeded data. It is recommended to create your own account(s) to test the email functionality (invite email, deleted schedule email, final schedule email). Two email addresses are necessary to properly test all of the email functions (one to create schedules, the other to recieve invites and deletion notifications).
 
 ## Group Members
 * Yang, Haolin
@@ -78,7 +78,8 @@ The general idea for this app is to provide functionality to users to schedule m
 * In the local version of this application, the dates selected in the createSchedule form are offset by one day when displayed elsewhere in the UI, due to a timezone conversion issue in MongoDB. This is solved in the version deployed on Google Cloud, since you can set a default timezone with Mongo Atlas. Please test using the deployed version
 * There are a few instances in the codebase where it is not possible to pass both the W3 HTML validator tests, as well as Tota11y accessability tests:
     * We have a landing page with a looping video background, and Tota11y considers the video tag to be an input, so it requires a label with a matching id. But the W3 validator doesn't consider the video tag to be an input, so it tells us that our label doesn't have an associated input.
-    * The same issue occurs on the Non-Authenticated error page, and the logout page
+        * The same issue occurs on the Non-Authenticated error page, and the logout page
+    * Another tradeoff we made is on the inviteForm page. Tota11y tests will fail because the checkbox inputs are missing a label. However, due to the logic of this page, it is impossible to label the inputs without having duplicate ids (duplicate ids are invalid HTML). This is because when there are multiple dates considered, the handlebars {{#each}} loop causes duplicate ids in the checkboxes. We opted for valid HTML over passing Tota11y tests.
 
 ## Database Schema
 ### Users
