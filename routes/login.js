@@ -31,6 +31,8 @@ router.post('/', async(req, res) => {
     req.session.userId = userId;
     if(req.session.fromEmail){
         res.redirect('/inviteForm');
+    } else if(req.session.fromFinalEmail) {
+        res.redirect(`/dashboard/${req.session.scheduleId}`)
     }
     else{
         res.redirect('/dashboard');
