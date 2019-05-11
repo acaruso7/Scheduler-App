@@ -49,9 +49,8 @@ The general idea for this app is to provide functionality to users to schedule m
 * Grid UI with names on one axis, and dates on the other
  	* The content of the grid will be the times users are available for that day, or the string 'Not Available'
 * Send out invites to edit schedule via email
-	* User will be prompted to create an account if they don’t already have one
+	* User will create an account if they don’t already have one
 	* Once the user has created an account, they will be able to view the current state of the schedule to which they were to invited to edit / add to
-	* Include a title and description of the activity in the initial invite email
 	* Link invitees to an HTML form where they select their availability
 * Notes / Comments on schedules
 * Dashboard in homepage / user profile showing a given user’s schedules
