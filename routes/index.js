@@ -14,6 +14,11 @@ const constructorMethod = app => {
     req.session.fromEmail = true;
     res.redirect('/login')
   })
+  app.get("/email/dashboard/:scheduleId", async (req, res) => {
+    req.session.scheduleId = req.params.scheduleId;
+    req.session.fromFinalEmail = true;
+    res.redirect('/login')
+  })
   app.use("/login", loginRoute);
   app.use("/signup", signupRoute);
   app.use("/dashboard", dashboardRoute);
@@ -25,7 +30,7 @@ const constructorMethod = app => {
     res.sendFile(path.resolve("static/logout.html"));
   });
   app.use("*", async (req, res) => {
-    res.redirect("/");
+    res.redirect("/");           
   });
 };
 
