@@ -5,10 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "seed": "node seed.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "node seed.js"
   },
-  "author": "Alexander Caruso",
+  "contributors" : ["Alexander Caruso", "Haolin Yang", "Jiawei Yang", "Shujaat Bakhsh", "Yangyang Liu"],
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -18,7 +17,6 @@
     "mongodb": "^3.2.3",
     "node-email-sender": "^1.0.1",
     "nodemon": "^1.19.0",
-    "seed": "^0.4.4",
     "xss": "^1.0.6"
   }
 }
