@@ -48,7 +48,9 @@ router.post("/", async (req, res) => {
           emailConfig: emailConfig.emailConfig,
           to: (await userData.get(oneInvitee)).email,
           subject: 'ScheduleMe Final Schedule',
-          content: `Everyone has responded to your ScheduleMe schedule. Please find the final version at the following link: \n \
+          content: `Everyone has responded to your ScheduleMe schedule. <br>
+          The schedule title is: ${schedule.title} <br>
+          Please find the final version at the following link: \n \
           ${deployUrl}/email/dashboard/${scheduleId}`
         });
       }
