@@ -5,11 +5,11 @@ const data = require('../data');
 const userData = data.users;
 const saltRounds = 3;
 const xss = require("xss")
-// *** get mey be deleted for the future
+// *** get may be deleted for the future
 router.get('/', async(req, res) => {
     res.render('log/signup',{});
 });
-// ********
+
 
 router.post('/', async(req, res) => {
     // find username exist or not
