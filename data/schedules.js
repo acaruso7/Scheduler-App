@@ -5,14 +5,24 @@ const noteData = require('./notes');
 
 const {ObjectId} = require('mongodb');
 
+//CRUD functions for schedules collection
+
+
+/**
+ * @returns Array of all the schedules in the database
+ */
 async function getAll() {
     const schedulesCollection = await schedules();  
     const allSchedules = await schedulesCollection.find({}).toArray();
     return allSchedules;
 }
 
+/**
+ * Get all schedules for a single user
+ * @param {object} scheduleIds an array of schedule ids stored in the user collection
+ * @returns an array of all user schedules
+ */
 async function getUserSchedules(scheduleIds) {
-    // scheduleIds is an array of schedule ids stored in the user collection
     const schedulesCollection = await schedules();
     for (let i=0; i < scheduleIds.length; i++) {
         scheduleIds[i] = ObjectId(scheduleIds[i])
@@ -21,12 +31,19 @@ async function getUserSchedules(scheduleIds) {
     return userSchedules
 }
 
+/**
+ * Creates a new schedule
+ * @param {string} creator user id of creater
+ * @param {Date} dateCreated date the schedule is created
+ * @param {string} title title of the schedule
+ * @param {string} description a short description for the schedule
+ * @param {number} numInvitees number of persons to be invited
+ * @return newly created schedule object
+ */
 async function create(creator, dateCreated, title, description, numInvitees){
     if(!creator) throw "You must have a creator!";
     if(typeof creator !== "string") throw `'creator' must be a string. The inputted value is of type ${typeof creator}`
-    //
-    //check date
-    //
+    
     if(!title) throw "You must have a title!";
     if(typeof title !== "string") throw `'title' must be a string. The inputted value is of type ${typeof title}`
     if(!description) throw "You must have a description!";
@@ -49,6 +66,11 @@ async function create(creator, dateCreated, title, description, numInvitees){
     return newSchedules;
 }
 
+/**
+ * Get a schedule by its id
+ * @param {string} scheduleId 
+ * @return schedule object
+ */
 async function getScheduleByID(scheduleId){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
@@ -62,6 +84,11 @@ async function getScheduleByID(scheduleId){
     return oneSchedule;
 }
 
+/**
+ * Add a user to an existing schedule
+ * @param {string} scheduleId 
+ * @param {string} userId 
+ */
 async function addUserToSchedule(scheduleId, userId){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
@@ -80,7 +107,11 @@ async function addUserToSchedule(scheduleId, userId){
 
     return;
 }
-
+/**
+ * Adds dates for a schedule
+ * @param {string} scheduleId 
+ * @param {Date} date Date to be added
+ */
 async function addDateToSchedule(scheduleId, date){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`
@@ -96,7 +127,11 @@ async function addDateToSchedule(scheduleId, date){
 
     return;
 }
-
+/**
+ * 
+ * @param {string} scheduleId 
+ * @param {string} userId 
+ */
 async function addResponseToSchedule(scheduleId, userId){
     if(!scheduleId) throw "You must have a scheduleId!";
     if(typeof scheduleId !== "string") throw `'scheduleId' must be a string. The inputted value is of type ${typeof scheduleId}`

@@ -7,7 +7,13 @@
     "start": "node app.js",
     "seed": "node seed.js"
   },
-  "contributors" : ["Alexander Caruso", "Haolin Yang", "Jiawei Yang", "Shujaat Bakhsh", "Yangyang Liu"],
+  "contributors": [
+    "Alexander Caruso",
+    "Haolin Yang",
+    "Jiawei Yang",
+    "Shujaat Bakhsh",
+    "Yangyang Liu"
+  ],
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
