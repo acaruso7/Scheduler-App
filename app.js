@@ -33,9 +33,8 @@ app.get('/', (req, res, next) => {
   if(req.session.isAuthenticated){
     if(req.session.fromEmail){
       res.redirect('/inviteForm');
-    } else if(req.session.fromFinalEmail) {
-      res.redirect(`/dashboard/${req.session.scheduleId}`)
-    } else{
+    }
+    else{
       res.redirect('/dashboard');
     }    
   }
