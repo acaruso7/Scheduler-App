@@ -56,6 +56,7 @@ router.post("/", async (req, res) => {
       }
     } 
     delete req.session.scheduleId;
+    req.session.fromEmail = false;
     res.redirect('/dashboard');
   } catch(e) {
     console.log(e)
