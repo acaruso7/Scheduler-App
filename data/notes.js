@@ -2,7 +2,7 @@ const collections = require("../config/collections");
 const notes = collections.notes;
 const {ObjectId} = require('mongodb');
 
-//CRUD dunctions for notes/comments data collection
+//CRUD functions for notes/comments data collection
 
 module.exports = {
     /**
