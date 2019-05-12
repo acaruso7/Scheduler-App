@@ -1,5 +1,9 @@
 const dbConnection = require("./connection");
 
+/** 
+ * @param {string} collection Name of the collection to be created
+ * @returns {object} Pointer to the database collection 
+ */
 const getCollectionFn = collection => {
   let _col = undefined;
 

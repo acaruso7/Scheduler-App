@@ -7,7 +7,7 @@ const mongoConfig = {
 
 let _connection = undefined;
 let _db = undefined;
-
+// returns a connection cursor to mongo database
 module.exports = async () => {
   if (!_connection) {
     _connection = await MongoClient.connect(mongoConfig.serverUrl, { useNewUrlParser: true });
