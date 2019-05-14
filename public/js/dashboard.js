@@ -1,4 +1,3 @@
-
 $(function () {  
     $('#scheduleCreate').on('click',function(event){
       event.preventDefault();
@@ -18,14 +17,11 @@ $(function () {
 		e.preventDefault();
 		console.log($(this)[0].value);
         let a = document.getElementById($(this)[0].value);
-        a.submit();
-        console.log(a);
+        if (confirm('Are you sure you want to delete this schedule?')){
+          a.submit();
+          console.log(a);
+        } else {
+          return false
+        }
   })
-  $('#deleteSchedule').on('click', (e) => {
-    e.preventDefault();
-    if (confirm("Are you sure you want to delete this schedule?")){
-      return true
-    }
-    return false
-	})
-})();
+});
