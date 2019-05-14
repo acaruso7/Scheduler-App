@@ -23,6 +23,9 @@ $(function () {
   })
   $('#deleteSchedule').on('click', (e) => {
     e.preventDefault();
-    alert("You have deleted the schedule")
+    if (confirm("Are you sure you want to delete this schedule?")){
+      return true
+    }
+    return false
 	})
 })();
