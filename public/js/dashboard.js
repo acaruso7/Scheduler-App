@@ -1,3 +1,4 @@
+
 $(function () {  
     $('#scheduleCreate').on('click',function(event){
       event.preventDefault();
@@ -19,5 +20,9 @@ $(function () {
         let a = document.getElementById($(this)[0].value);
         a.submit();
         console.log(a);
+  })
+  $('#deleteSchedule').on('click', (e) => {
+    e.preventDefault();
+    alert("You have deleted the schedule")
 	})
-});
+})();

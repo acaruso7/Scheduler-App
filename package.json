@@ -4,7 +4,7 @@
   "description": "A node.js scheduler app to find mutual meeting times among group members",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "seed": "node seed.js"
   },
   "contributors": [
