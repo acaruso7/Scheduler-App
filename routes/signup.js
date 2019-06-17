@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
 router.post('/', async(req, res) => {
     // find username exist or not
     try {
-        await userData.getUserIdByEmail(req.body.username);
+        await userData.getUserIdByEmail(req.body.username.toLowerCase());
         res.render('log/signup',{nameError: "exist"});
         return;
     } catch (e){}
@@ -29,7 +29,7 @@ router.post('/', async(req, res) => {
     // create a new user
     try {
         let hashedPassword = await bcrypt.hash(xss(req.body.password), saltRounds);
-        const newUser = await userData.create(xss(req.body.fullName), req.body.username, hashedPassword);
+        const newUser = await userData.create(xss(req.body.fullName), req.body.username.toLowerCase(), hashedPassword);
         req.session.isAuthenticated = true;
         req.session.userId = newUser._id.toString();
         if(req.session.fromEmail){

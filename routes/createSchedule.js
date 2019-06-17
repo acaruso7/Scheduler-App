@@ -29,6 +29,13 @@ router.post("/", async (req, res) => {
     if(typeof emails === "string"){
         emails = [emails];
     }
+    for (const index in emails) {
+        if (emails.hasOwnProperty(index)) {
+            const oneEmail = emails[index].toLowerCase();
+            emails[index] = oneEmail;
+        }
+    }
+    
     if(typeof dates === "string"){
         dates = [dates];
     }

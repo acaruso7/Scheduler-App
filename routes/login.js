@@ -15,7 +15,7 @@ router.post('/', async(req, res) => {
     // Check the username exsit or not. 
     // Check the password is right or not. 
     try {
-        userId = await userData.getUserIdByEmail(req.body.username);
+        userId = await userData.getUserIdByEmail(req.body.username.toLowerCase());
         isRightPassword = await bcrypt.compare(xss(req.body.password), (await userData.get(userId)).password);
     } catch (e) {
         res.status(404).render('log/login',{error: "Email or password is incorrect"});
